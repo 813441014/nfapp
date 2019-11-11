@@ -250,6 +250,7 @@
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
+    line-height: 0.6rem;
 
 }
 .recommend_items .details{
