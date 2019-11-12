@@ -49,7 +49,7 @@ body{
     margin-top:  0.12rem;
 }
 .imgUrl{
-overflow-x:scroll;
+    overflow-x:scroll;
 }
 .imgUrl div{
     overflow: hidden;
@@ -66,24 +66,44 @@ overflow-x:scroll;
 
 .header{
     position: fixed;
-    top: 0;
     left: 0;
     right: 0;
+    top: 0;
     display: flex;
     align-items: center;
     height: 1.17rem;
     padding: 0 0.53rem;
     background: #f5f5f5;
 }
-.boxList{
-    padding-top: 1.17rem;
+.filter{
+
+}
+.search_inp{
+    background: #fff;
+    flex: 1;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius:0.4rem;
+    border-radius: 0.4rem;
+    border: 1px solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    margin-left: 0.2rem;
+}
+.search_inp span{
+    margin: 0 0.2rem;
+}
+.search_inp input{
+    line-height: 0.8rem;
+    border: none;
+    flex: 1;
 }
 .goBack{
     height: 0.53rem;
     line-height: 0.53rem;
-    position: absolute;
-    top: 0.32rem;
-    left: 0.53rem;
 }
 .searchIcon{
     height: 0.53rem;
@@ -110,4 +130,42 @@ overflow-x:scroll;
     color: #000;
     font-size: 0.4rem;
     text-align: center;
+}
+
+.filter{
+    position: fixed;
+    top: 1.17rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 0.45rem 0;
+}
+.filter div{
+    flex: 1;
+    font-size: 0.37rem;
+    color: #222222;
+    text-align: center;
+}
+.filter div span{
+    color: #a7a7a7;
+}
+.boxItems{
+    padding-top: 2.6rem;
+}
+
+.alertBtn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1.4rem;
+
+    background: #ffffff;
+
+}
+.alertBtn p{
+    background: #ffffff;
+    line-height: 1.28rem;
+    border-top: 1px solid #f5f5f5;
 }

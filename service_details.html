@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>农副产品信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/sevice_details.css">
+
+</head>
+<body>
+<div >
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+        <p>详情</p>
+        <div class="rightIcon">
+            <p class="grayColor">
+                <span class="iconfont icon-xing1"></span>
+            </p>
+            <p class="greenColor">
+                <span class="iconfont icon-xing"></span>
+            </p>
+
+        </div>
+    </div>
+   <div class="details">
+           <div class="swiper-container">
+               <div class="swiper-wrapper">
+                   <div class="swiper-slide">
+                       <img src="image/banner.png" alt="">
+                   </div>
+                   <div class="swiper-slide">
+                       <img src="image/banner.png" alt="">
+                   </div>
+                   <div class="swiper-slide">
+                       <img src="image/banner.png" alt="">
+                   </div>
+                   <div class="swiper-slide">
+                       <img src="image/banner.png" alt="">
+                   </div>
+               </div>
+               <div class="swiper-pagination"></div>
+           </div>
+       <div class="desc">
+           <p class="title">
+               <span class="redbtn">优选</span>
+               <span>
+                      常年供应大蒜，质量有保证，收购、储存一站式供应，量大优先，欢迎来电垂询
+               </span>
+           </p>
+           <p class="descdetails">
+               偏远地区不包邮，含新疆，西藏，内蒙古，甘肃，贵州和四川部分偏远地区不包邮，具体运费具体协商，其他地区都包邮！
+           </p>
+           <div class="deta">
+               2019年9月16日 发布
+           </div>
+       </div>
+       <div class="content">
+             <div class="mainFlex">
+                 <p>类型</p>
+                 <p>玉米</p>
+             </div>
+           <div class="mainFlex">
+               <p>数量</p>
+               <p>5000斤</p>
+           </div>
+           <div class="mainFlex">
+               <p>价格</p>
+               <p>55元/斤</p>
+           </div>
+           <div class="mainFlex">
+               <p>位置</p>
+               <p>内蒙古自治区</p>
+           </div>
+       </div>
+   </div>
+    <div class="contactUs">
+        联系我们
+    </div>
+
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+<script src="js/common.js"> </script>
+<script>
+    $(function(){
+        getRem();
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    })
+    function inp_cli(){
+        $("#search").css("display","none");
+        $("#input_search").css("display","flex")
+    }
+
+</script>
+</body>
+</html>
