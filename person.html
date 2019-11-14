@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/person.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="image/personBac.png" alt="" class="personBac">
+        <div class="headerNav">
+             <img src="image/banner.png" alt="">
+               <div class="headCont">
+                  <div class="headTit">
+                      <p>丁忠</p>
+                      <span>完整度20%</span>
+                  </div>
+                   <div class="iphone">
+                       15656565656
+                   </div>
+               </div>
+            <div class="headEdit">
+                <p>编辑资料</p>
+                <span class="iconfont icon-fabu"></span>
+            </div>
+        </div>
+    </div>
+    <div class="personList">
+        <div class="uli">
+            <span class="iconfont icon-fabu"></span>
+            <p>个人信息</p>
+            <span class="iconfont icon-fabu"></span>
+        </div>
+        <div class="uli">
+            <span class="iconfont icon-fabu"></span>
+            <p>我的发布</p>
+            <span class="iconfont icon-fabu"></span>
+        </div>
+        <div class="uli">
+            <span class="iconfont icon-fabu"></span>
+            <p>我的收藏</p>
+            <span class="iconfont icon-fabu"></span>
+        </div>
+        <div class="uli">
+            <span class="iconfont icon-fabu"></span>
+            <p>通知消息</p>
+            <span class="iconfont icon-fabu"></span>
+        </div>
+        <div class="uli">
+            <span class="iconfont icon-fabu"></span>
+            <p>退出</p>
+            <span class="iconfont icon-fabu"></span>
+        </div>
+    </div>
+    <div class="fixDiv">
+        <span class="iconfont icon-fabu"></span>
+        <p>联系我们</p>
+    </div>
+    <div class="footer">
+        <div>
+            <span class="iconfont icon-fabu"></span>
+            <p>发布</p>
+        </div>
+        <ul class="bottom">
+            <li index="1" onclick="toIndex()">
+                <span class="iconfont icon-shouye1"></span>
+                <p>首页</p>
+            </li>
+            <li index="2" class="active">
+                <span class="iconfont icon-icon-test"></span>
+                <p>我的</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/common.js"> </script>
+<script>
+    $(function(){
+        getRem()
+    })
+    function inp_cli(){
+        $("#search").css("display","none");
+        $("#input_search").css("display","flex")
+    }
+    function toIndex(){
+        window.location.href="index.html"
+    }
+
+</script>
+</body>
+</html>

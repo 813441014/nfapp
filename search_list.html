@@ -22,7 +22,7 @@
     </div>
 
     <div class="filter">
-        <div >
+        <div onclick="pop()">
             <p>
                 最近一年
                 <span class="iconfont icon-xiala"></span>
@@ -124,9 +124,12 @@
         </div>
     </div>
     </div>
-    <div class="moleDiv">
+    <div class="moleDiv" id="moleDiv" onclick="miss()">
         <div class="alertBtn">
-            <p class="active">最近一年</p>
+            <p class="active">
+                最近一年
+                <span class="iconfont icon-fanhui1"></span>
+            </p>
             <p>最近半年</p>
         </div>
     </div>
@@ -136,13 +139,23 @@
 <script src="js/common.js"> </script>
 <script>
     $(function(){
-        getRem()
+        getRem();
+        $("#moleDiv p").click(function(event){
+            window.event? window.event.cancelBubble = true : e.stopPropagation();
+            console.log($(this))
+            $(this).addClass("active").siblings().removeClass("active")
+        })
     })
     function inp_cli(){
         $("#search").css("display","none");
         $("#input_search").css("display","flex")
     }
-
+    function pop(){
+        $("#moleDiv").css("display","block");
+    }
+    function miss(){
+        $("#moleDiv").css("display","none");
+    }
 </script>
 </body>
 </html>

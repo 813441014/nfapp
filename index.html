@@ -5,8 +5,11 @@
     <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
+
 
 </head>
 <body>
@@ -176,32 +179,77 @@
                </div>
            </div>
        </div>
+       <div id="about" class="weui-popup__container popup-bottom">
+           <div class="weui-popup__overlay"></div>
+           <div class="weui-popup__modal">
+               <div class="popUli">
+                   <div class="popLi">
+                       <img src="image/icon1.png" alt="">
+                       <p>土地</p>
+                       <p>出让/出租</p>
+                   </div>
+                   <div class="popLi">
+                       <img src="image/icon2.png" alt="">
+                       <p>农机具</p>
+                       <p>购买/求组</p>
+                   </div>
+                   <div class="popLi">
+                       <img src="image/icon3.png" alt="">
+                       <p>农副产品</p>
+                       <p>销售</p>
+                   </div>
+                   <div class="popLi">
+                       <img src="image/icon4.png" alt="">
+                       <p>求购农资</p>
+                   </div>
+                   <div class="popLi">
+                       <img src="image/icon5.png" alt="">
+                       <p>订单种植</p>
+                   </div>
+                   <div class="popLi">
+                       <img src="image/icon6.png" alt="">
+                       <p>打工</p>
+                   </div>
+               </div>
+           </div>
+       </div>
        <div class="footer">
-           <div>
-               <span class="iconfont icon-fabu"></span>
-               <p>发布</p>
+           <div onclick="popUp()">
+                   <span class="iconfont icon-fabu"></span>
+                   <p>发布</p>
+
            </div>
            <ul class="bottom">
-               <li index="1" class="active">
+               <li index="1" class="active" >
                    <span class="iconfont icon-shouye1"></span>
                      <p>首页</p>
                </li>
-               <li index="2">
+               <li index="2" onclick="toPerson()">
                    <span class="iconfont icon-icon-test"></span>
                    <p>我的</p>
                </li>
            </ul>
        </div>
    </div>
-   <script src="js/jquery-3.4.1.min.js"></script>
+<!--   <script src="js/jquery-3.4.1.min.js"></script>-->
+   <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
    <script src="js/common.js"> </script>
+   <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+   <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>
    <script>
        $(function(){
-           getRem()
+           getRem();
        })
        function inp_cli(){
            $("#search").css("display","none");
            $("#input_search").css("display","flex")
+       }
+       function toPerson(){
+           window.location.href="person.html"
+       }
+
+       function popUp(){
+           $("#about").popup();
        }
 
    </script>

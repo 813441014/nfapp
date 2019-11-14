@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/person_edit.css">
+
+
+</head>
+<body>
+<div >
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+        <p>个人资料</p>
+    </div>
+    <div class="contentUli">
+        <p class="title">
+            身份信息编辑以完善20%
+        </p>
+       <div class="name">
+           基础信息
+       </div>
+        <div class="mainFlex navorFlex">
+            <p>我的头像</p>
+            <div class="navor">
+                <img src="image/banner.png" alt="">
+                <input type="file">
+            </div>
+        </div>
+        <div class="mainFlex">
+            <p>我的姓名</p>
+            <div class="flexEnd">
+                <input type="text" value="丁忠">
+            </div>
+        </div>
+        <div class="mainFlex">
+            <p>绑定手机号</p>
+            <div class="flexEnd">
+                <input type="text" value="15656565656">
+            </div>
+        </div>
+        <div class="mainFlex type type03">
+            <p>出生地区</p>
+            <div class="flexEnd">
+                <!--                <input type="text" id='city-picker' value="浙江 杭州 拱墅区" />-->
+                <div id="birthPicker">请选择您的出生地区</div>
+            </div>
+        </div>
+        <div class="name">
+            行业信息
+        </div>
+        <div class="mainFlex">
+            <p>我的身份</p>
+            <div class="flexEnd">
+                <div id="job">农户</div>
+            </div>
+        </div>
+        <div class="mainFlex type type01">
+            <p>营业执照号</p>
+            <div class="flexEnd">
+               身份证
+            </div>
+        </div>
+        <div class="mainFlex type type02">
+            <p>证件类型</p>
+            <div class="flexEnd">
+                身份证
+            </div>
+        </div>
+        <div class="mainFlex">
+            <p>证件号码</p>
+            <div class="flexEnd">
+                <input type="text" value="2020200">
+            </div>
+        </div>
+        <div class="main imgtype imgtype01 type">
+            <p>上传营业执照号</p>
+            <div class="imgUli">
+                <div class="imgLi">
+                    <img src="image/banner.png" alt="">
+                </div>
+                <div class="addImg">
+                    <span class="iconfont icon-fanhui1"></span>
+                    <p>添加图片</p>
+                    <input type="file">
+                </div>
+
+            </div>
+        </div>
+        <div class="main imgtype imgtype02 type">
+            <p>身份证</p>
+            <div class="imgUli">
+                <div class="imgLi">
+                    <img src="image/banner.png" alt="">
+                </div>
+                <div class="addImg">
+                    <span class="iconfont icon-fanhui1"></span>
+                    <p>添加图片</p>
+                    <input type="file">
+                </div>
+
+            </div>
+        </div>
+        <div class="mainFlex type01 type">
+            <p>主营品种</p>
+            <div class="flexEnd">
+                <input type="text" placeholder="请输入主营业务规模">
+            </div>
+        </div>
+        <div class="mainFlex type02 type">
+            <p>主营业务规模</p>
+            <div class="flexEnd">
+                <input type="text" placeholder="请输入主营业务规模">
+            </div>
+        </div>
+        <div class="mainFlex">
+            <p>位置</p>
+            <div class="flexEnd">
+<!--                <input type="text" id='city-picker' value="浙江 杭州 拱墅区" />-->
+                <div id="cityPicker">111</div>
+            </div>
+        </div>
+        <div class="name">
+            其他信息
+        </div>
+        <div class="mainFlex">
+            <p>修改密码</p>
+
+        </div>
+    </div>
+
+</div>
+<!--<script src="js/jquery-3.4.1.min.js"></script>-->
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/common.js"> </script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>
+<script>
+    $(function(){
+        getRem();
+        $("#cityPicker").cityPicker({
+            title: "请选择收货地址",
+            onChange:function(e) {
+                console.log(e);
+                $("#cityPicker").html(e.displayValue[0]+e.displayValue[1]+e.displayValue[2]);
+            }
+        });
+        $("#job").select({
+            title: "选择身份",
+            items: ["农户", "商户","卖家"],
+            onChange:function(e){
+                console.log(e);
+                $(".type").css("display","none");
+                $(".imgtype").css("display","none");
+                $("#job").html(e.values);
+                if(e.values == "商户"){
+                    $(".type01").css("display","flex");
+                    $(".imgtype01").css("display","block");
+                }else if(e.values == "农户"){
+                    $(".type02").css("display","flex");
+                    $(".imgtype02").css("display","block");
+                }else{
+                    $(".type02").css("display","flex");
+                    $(".type03").css("display","flex");
+                    $(".imgtype02").css("display","block");
+                }
+
+            }
+        });
+    })
+    function inp_cli(){
+        $("#search").css("display","none");
+        $("#input_search").css("display","flex")
+    }
+
+</script>
+</body>
+</html>

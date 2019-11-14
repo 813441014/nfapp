@@ -11,4 +11,5 @@ function getRem(){
     var html = document.getElementsByTagName("html")[0];
     var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
     html.style.fontSize = oWidth/10 + "px";
+    $("body").css("display","block")
 }

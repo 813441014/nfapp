@@ -2,6 +2,9 @@
 body{
     background: #f5f5f5;
 }
+#moleDiv{
+    display: none;
+}
 .recommend_items .name{
     font-size: 0.34rem;
     text-overflow: -o-ellipsis-lastline;
@@ -175,10 +178,26 @@ body{
     font-size: 0.29rem;
     border-top: 1px solid #f5f5f5;
     text-align: center;
+    position: relative;
+}
+.alertBtn p span{
+    display: none;
 }
 .alertBtn .active{
-    color: #000;
+    color: #1bb339;
 }
+.alertBtn .active span{
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0.2rem;
+    bottom: 0;
+    line-height: 1.28rem;
+    color: #1bb339;
+}
+/*.alertBtn .active{*/
+/*    color: #000;*/
+/*}*/
 .moleDiv{
     position: fixed;
     top: 0rem;
