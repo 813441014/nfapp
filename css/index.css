@@ -341,3 +341,22 @@
 #input_search{
     display: none;
 }
+
+.popUli{
+overflow: hidden;
+    padding: 0.93rem 0;
+}
+.popLi{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    margin-bottom: 0.93rem;
+}
+.popLi img{
+    width: 1rem;
+    height: 1rem;
+}
+.popLi p{
+    font-size: 0.32rem;
+    line-height: 0.6rem;
+}
