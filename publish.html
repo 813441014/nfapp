@@ -21,8 +21,8 @@
          <div class="mainFlex">
               <p class="title">土地类型</p>
              <div>
-                 <input type="text" placeholder="请输入土地类型">
-                 <span class="iconfont icon-xiayibu"></span>
+                 <input type="text" placeholder="请输入土地类型" readonly="readonly">
+                 <span class="iconfont icon-xiayibu" onclick="toType()"></span>
              </div>
          </div>
         <div class="mainFlex">
@@ -51,7 +51,7 @@
             <div>
                 <input type="text" placeholder="请输入信息要点">
                 <span>斤</span>
-                <span class="iconfont icon-xiayibu"></span>
+                <span class="iconfont icon-xiayibu" onclick="toweight()"></span>
             </div>
         </div>
         <div class="mainFlex">
@@ -78,6 +78,7 @@
             <p class="title">位置</p>
             <div>
                 <input type="text" placeholder="请输入电话" >
+                <span class="iconfont icon-xiayibu" onclick="tolocat()"></span>
             </div>
         </div>
         <div class="mainFlex">
@@ -100,7 +101,17 @@
         $("#search").css("display","none");
         $("#input_search").css("display","flex")
     }
+    function toType(){
+        window.location.href="chooseType.html"
+    }
 
+    function toweight(){
+        window.location.href="chooseWeight.html"
+    }
+
+    function tolocat(){
+        window.location.href="location.html"
+    }
 </script>
 </body>
 </html>

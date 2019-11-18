@@ -183,7 +183,7 @@
            <div class="weui-popup__overlay"></div>
            <div class="weui-popup__modal">
                <div class="popUli">
-                   <div class="popLi">
+                   <div class="popLi"  onclick="toPublish()">
                        <img src="image/icon1.png" alt="">
                        <p>土地</p>
                        <p>出让/出租</p>
@@ -240,6 +240,9 @@
        $(function(){
            getRem();
        })
+       function toPublish(){
+           window.location.href="publish.html"
+       }
        function inp_cli(){
            $("#search").css("display","none");
            $("#input_search").css("display","flex")

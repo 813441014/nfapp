@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
-    <link rel="stylesheet" href="css/person_edit.css">
+    <link rel="stylesheet" href="css/register_news.css">
 
 
 </head>
@@ -18,60 +18,24 @@
         <div class="goBack">
             <span class="iconfont icon-fanhui1"></span>
         </div>
-        <p>个人资料</p>
+        <p>注册信息</p>
     </div>
     <div class="contentUli">
-        <p class="title">
-            身份信息编辑以完善20%
-        </p>
-       <div class="name">
-           基础信息
-       </div>
-        <div class="mainFlex navorFlex">
-            <p>我的头像</p>
-            <div class="navor">
-                <img src="image/banner.png" alt="">
-                <input type="file">
-            </div>
-        </div>
         <div class="mainFlex">
-            <p>我的姓名</p>
+            <p>真实姓名</p>
             <div class="flexEnd">
                 <input type="text" value="丁忠">
             </div>
         </div>
         <div class="mainFlex">
-            <p>绑定手机号</p>
-            <div class="flexEnd">
-                <input type="text" value="15656565656">
-            </div>
-        </div>
-        <div class="mainFlex type type03">
-            <p>出生地区</p>
-            <div class="flexEnd">
-                <!--                <input type="text" id='city-picker' value="浙江 杭州 拱墅区" />-->
-                <div id="birthPicker">请选择您的出生地区</div>
-            </div>
-        </div>
-        <div class="name">
-            行业信息
-        </div>
-        <div class="mainFlex">
-            <p>我的身份</p>
-            <div class="flexEnd">
-                <div id="job">农户</div>
-            </div>
-        </div>
-        <div class="mainFlex type type01">
-            <p>营业执照号</p>
-            <div class="flexEnd">
-               身份证
-            </div>
-        </div>
-        <div class="mainFlex type type02">
             <p>证件类型</p>
-            <div class="flexEnd">
-                身份证
+            <div class="radioFlex" id="radio_main">
+                 <div class="radio_active" data-index="0">
+                     <p>身份证</p>
+                 </div>
+                <div data-index="1">
+                    <p>营业执照</p>
+                </div>
             </div>
         </div>
         <div class="mainFlex">
@@ -80,7 +44,8 @@
                 <input type="text" value="2020200">
             </div>
         </div>
-        <div class="main imgtype imgtype01 type">
+
+        <div class="main imgtype " id="addFiles">
             <p>上传营业执照号</p>
             <div class="imgUli">
                 <div class="imgLi">
@@ -94,45 +59,31 @@
 
             </div>
         </div>
-        <div class="main imgtype imgtype02 type">
-            <p>身份证</p>
-            <div class="imgUli">
-                <div class="imgLi">
-                    <img src="image/banner.png" alt="">
-                </div>
-                <div class="addImg">
-                    <span class="iconfont icon-add"></span>
-                    <p>添加图片</p>
-                    <input type="file">
-                </div>
 
-            </div>
-        </div>
-        <div class="mainFlex type01 type">
-            <p>主营品种</p>
-            <div class="flexEnd">
-                <input type="text" placeholder="请输入主营业务规模">
-            </div>
-        </div>
-        <div class="mainFlex type02 type">
-            <p>主营业务规模</p>
-            <div class="flexEnd">
-                <input type="text" placeholder="请输入主营业务规模">
-            </div>
-        </div>
         <div class="mainFlex">
             <p>位置</p>
             <div class="flexEnd">
-<!--                <input type="text" id='city-picker' value="浙江 杭州 拱墅区" />-->
+                <!--                <input type="text" id='city-picker' value="浙江 杭州 拱墅区" />-->
                 <div id="cityPicker">111</div>
             </div>
         </div>
-        <div class="name">
-            其他信息
+        <div class="mainFlex matginTop">
+            <p>手机号</p>
+            <div class="flexEnd">
+                <input type="text"  placeholder="请输入手机号">
+            </div>
         </div>
         <div class="mainFlex">
-            <p>修改密码</p>
+            <p>验证码</p>
+            <div class="flexEnd">
+               <button class="rightDiv">
+                   获取验证码
+               </button>
+            </div>
+        </div>
 
+        <div class="fixP">
+           <p onclick="nextStep()">下一步</p>
         </div>
     </div>
 
@@ -174,12 +125,25 @@
 
             }
         });
+        $("#radio_main div").click(function(){
+            console.log($(this));
+            $(this).addClass("radio_active").siblings().removeClass("radio_active");
+            console.log($(this).context)
+            if($(this).context.dataset.index == 0){
+                 $("#addFiles").css("display","none")
+            }else{
+                $("#addFiles").css("display","block")
+            }
+        })
     })
     function inp_cli(){
         $("#search").css("display","none");
         $("#input_search").css("display","flex")
     }
 
+    function nextStep(){
+        window.location.href="set_passs.html"
+    }
 </script>
 </body>
 </html>

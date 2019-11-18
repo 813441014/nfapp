@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置密码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/set_pass.css">
+
+</head>
+<body>
+<div >
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+        <p>设置密码</p>
+    </div>
+    <div class="uli">
+        <div class="mainFlex">
+            <p>密码</p>
+            <div>
+                <input type="text" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="mainFlex">
+            <p>确认密码</p>
+            <div>
+                <input type="text" placeholder="请再次输入密码">
+            </div>
+        </div>
+        <div class="fixDiv" onclick="toLogin()">
+            <p>注册并登录</p>
+        </div>
+    </div>
+
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/common.js"> </script>
+<script>
+    $(function(){
+        getRem()
+    })
+    function inp_cli(){
+        $("#search").css("display","none");
+        $("#input_search").css("display","flex")
+    }
+     function toLogin(){
+        window.location.href="login.html"
+     }
+</script>
+</body>
+</html>

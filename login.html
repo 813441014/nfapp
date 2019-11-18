@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+<body>
+<div >
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+        <p>登录</p>
+    </div>
+    <div class="box_content">
+         <div class="nav">
+             <div class="navItems active" data-index="0">
+                 手机验证码登录
+             </div>
+             <div class="navItems" data-index="1">
+                 密码登录
+             </div>
+         </div>
+        <div class="boxContent">
+            <div class="boxCont disDiv">
+                <div class="mainFlex">
+                    <div class="inp_div">
+                        <input type="text" placeholder="点击输入您的手机号">
+                    </div>
+                </div>
+                <div class="mainFlex">
+                    <div class="inp_div">
+                        <input type="text" placeholder="点击输入验证码">
+                    </div>
+                    <p class="codeNum">获取验证码</p>
+
+                </div>
+            </div>
+            <div  class="boxCont">
+                <div class="mainFlex">
+                    <div class="inp_div">
+                        <input type="text" placeholder="点击输入您的手机号">
+                    </div>
+
+                </div>
+                <div class="mainFlex">
+                    <div class="inp_div">
+                        <input type="text" placeholder="点击输入您的密码">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="navCenter">
+            <div>登录</div>
+            <div>新用户注册</div>
+        </div>
+        <div class="navBottom">
+            <p>
+                登录即表示已经同意 <span>《登录即表示已经同意》</span>
+            </p>
+            <p>如有疑问，请点击 <span>联系我们</span></p>
+        </div>
+    </div>
+
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/common.js"> </script>
+<script>
+    $(function(){
+        getRem()
+        $(".nav .navItems").click(function(){
+            console.log($(this));
+            $(this).addClass("active").siblings().removeClass("active");
+            console.log($(this)[0].dataset.index);
+            if($(this)[0].dataset.index == 0){
+
+                $(".boxContent").find(".boxCont").eq(0).addClass("disDiv").siblings().removeClass("disDiv")
+            }else{
+                $(".boxContent").find(".boxCont").eq(1).addClass("disDiv").siblings().removeClass("disDiv")
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

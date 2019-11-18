@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>位置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/location.css">
+
+</head>
+<body>
+<div >
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+        <p>位置</p>
+    </div>
+    <div class="uli">
+        <div class="list">
+            <p>位置</p>
+            <div class="boxItems" >
+                <p id="cityPicker">北京市北京区</p>
+                <span class="iconfont icon-xiayibu" ></span>
+            </div>
+
+        </div>
+        <div class="list">
+            <input type="text" placeholder="请输入详细地址">
+        </div>
+        <div class="sureBtn">
+            <p>确认</p>
+        </div>
+
+
+
+
+    </div>
+</div>
+<!--<script src="js/jquery-3.4.1.min.js"></script>-->
+<!--<script src="js/common.js"> </script>-->
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/common.js"> </script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>
+<script>
+    $(function(){
+        getRem()
+        $(".uli .list").click(function(){
+            $(this).addClass("active").siblings().removeClass("active")
+        })
+        $("#cityPicker").cityPicker({
+            title: "请选择收货地址",
+            onChange:function(e) {
+                console.log(e);
+                $("#cityPicker").html(e.displayValue[0]+e.displayValue[1]+e.displayValue[2]);
+            }
+        });
+    })
+    function inp_cli(){
+        $("#search").css("display","none");
+        $("#input_search").css("display","flex")
+    }
+
+    function tolocat(){
+
+    }
+</script>
+</body>
+</html>

@@ -9,3 +9,6 @@ body{
 body{
     display: none;
 }
+.header{
+    z-index: 100;
+}
