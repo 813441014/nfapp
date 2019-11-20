@@ -20,3 +20,6 @@ function getRem(){
     html.setAttribute('style', 'font-size:'+oWidth/10 +'px!important');
     $("body").css("display","block")
 }
+
+
+var mainUrl ="http://llf.zjqqbdf.cn/nongfu/app/"

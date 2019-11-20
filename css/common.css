@@ -12,3 +12,7 @@ body{
 .header{
     z-index: 100;
 }
+
+.city-picker .picker-items-col{
+    text-align: center!important;
+}

@@ -24,7 +24,7 @@
         <div class="mainFlex">
             <p>真实姓名</p>
             <div class="flexEnd">
-                <input type="text" value="丁忠">
+                <input type="text" value="" placeholder="请输入真实姓名" id="realName">
             </div>
         </div>
         <div class="mainFlex">
@@ -41,7 +41,21 @@
         <div class="mainFlex">
             <p>证件号码</p>
             <div class="flexEnd">
-                <input type="text" value="2020200">
+                <input type="text" placeholder="请输入证件号码" id="cardNum">
+            </div>
+        </div>
+        <div class="main imgtype " id="addCard">
+            <p>上传身份证</p>
+            <div class="imgUli">
+                <div class="imgLi">
+                    <img src="image/banner.png" alt="">
+                </div>
+                <div class="addImg">
+                    <span class="iconfont icon-add"></span>
+                    <p>添加图片</p>
+                    <input type="file">
+                </div>
+
             </div>
         </div>
 
@@ -64,18 +78,22 @@
             <p>位置</p>
             <div class="flexEnd">
                 <!--                <input type="text" id='city-picker' value="浙江 杭州 拱墅区" />-->
-                <div id="cityPicker">111</div>
+                <div id="cityPicker">请选择</div>
             </div>
         </div>
         <div class="mainFlex matginTop">
             <p>手机号</p>
             <div class="flexEnd">
-                <input type="text"  placeholder="请输入手机号">
+                <input type="text"  placeholder="请输入手机号" id="phone">
             </div>
         </div>
         <div class="mainFlex">
             <p>验证码</p>
             <div class="flexEnd">
+                <div class="endInput">
+                    <input type="text"  placeholder="请输入验证码" id="codeNum">
+                </div>
+
                <button class="rightDiv">
                    获取验证码
                </button>
@@ -130,8 +148,10 @@
             $(this).addClass("radio_active").siblings().removeClass("radio_active");
             console.log($(this).context)
             if($(this).context.dataset.index == 0){
+                 $("#addCard").css("display","block");
                  $("#addFiles").css("display","none")
             }else{
+                $("#addCard").css("display","none");
                 $("#addFiles").css("display","block")
             }
         })

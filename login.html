@@ -5,6 +5,8 @@
     <title>登录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/login.css">
 
@@ -30,27 +32,27 @@
             <div class="boxCont disDiv">
                 <div class="mainFlex">
                     <div class="inp_div">
-                        <input type="text" placeholder="点击输入您的手机号">
+                        <input type="text" placeholder="点击输入您的手机号" id="codePhone">
                     </div>
                 </div>
                 <div class="mainFlex">
                     <div class="inp_div">
-                        <input type="text" placeholder="点击输入验证码">
+                        <input type="text" placeholder="点击输入验证码" id="codeNum">
                     </div>
-                    <p class="codeNum">获取验证码</p>
+                    <p class="codeNum" onclick="getCode()" id="codeName">获取验证码</p>
 
                 </div>
             </div>
             <div  class="boxCont">
                 <div class="mainFlex">
-                    <div class="inp_div">
-                        <input type="text" placeholder="点击输入您的手机号">
+                    <div class="inp_div" >
+                        <input type="text" placeholder="点击输入您的手机号" id="phone">
                     </div>
 
                 </div>
                 <div class="mainFlex">
-                    <div class="inp_div">
-                        <input type="text" placeholder="点击输入您的密码">
+                    <div class="inp_div" >
+                        <input type="text" placeholder="点击输入您的密码" id="password">
                     </div>
 
                 </div>
@@ -58,8 +60,8 @@
         </div>
 
         <div class="navCenter">
-            <div>登录</div>
-            <div>新用户注册</div>
+            <div onclick="toIndex()">登录</div>
+            <div onclick="register()">新用户注册</div>
         </div>
         <div class="navBottom">
             <p>
@@ -72,21 +74,143 @@
 </div>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/common.js"> </script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>
 <script>
+
+    var type = "1"; //登录方式 1 验证码 2 密码
     $(function(){
-        getRem()
+        getRem();
+        $.toast.prototype.defaults.duration = 800;
         $(".nav .navItems").click(function(){
             console.log($(this));
             $(this).addClass("active").siblings().removeClass("active");
             console.log($(this)[0].dataset.index);
             if($(this)[0].dataset.index == 0){
-
+                type = "1";
                 $(".boxContent").find(".boxCont").eq(0).addClass("disDiv").siblings().removeClass("disDiv")
             }else{
+                type = "2"
                 $(".boxContent").find(".boxCont").eq(1).addClass("disDiv").siblings().removeClass("disDiv")
             }
         })
     })
+    //登录
+    function toIndex(){
+        var phone = "";
+        var password = "";
+        var code = "";
+        if(type == 1){
+
+            phone = $("#codePhone").val();
+            code=$("#codeNum").val();
+            if(phone == ""){
+                $.toast("请输入手机号", "forbidden");
+                return false
+            }
+            if(code == ""){
+                $.toast("请输入验证码", "forbidden");
+                return false
+            }
+        }else{
+            phone = $("#phone").val();
+            password = $("#password").val();
+            if(phone == ""){
+                $.toast("请输入手机号", "forbidden");
+                return false
+            }
+            if(password == ""){
+                $.toast("请输入密码", "forbidden");
+                return false
+            }
+
+        }
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            dataType: "json",
+            //请求地址
+            url : mainUrl + "user/Login/login",
+            //数据，json字符串
+            data : {
+                phone,
+                password,
+                code
+            },
+            //请求成功
+            success : function(result) {
+                $.toast("登录成功", function() {
+                  window.location.href="index.html"
+                });
+            },
+            //请求失败，包含具体的错误信息
+            error : function(e){
+                console.log(e.status);
+                console.log(e.responseText);
+                $.toast("请求失败", "forbidden");
+            }
+        })
+    }
+
+    //获取验证码
+    function getCode(){
+        var  phone = $("#codePhone").val();
+        if(phone == ""){
+            $.toast("请输入手机号", "forbidden");
+            return false;
+        }else{
+            if(!(/^1[3456789]\d{9}$/.test(phone))){
+                alert("手机号码有误，请重填");
+                return false;
+            }
+        }
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            dataType: "json",
+            //请求地址
+            url : mainUrl + "message/Code/code",
+            //数据，json字符串
+            data : {
+                phone,
+                type:2
+            },
+            //请求成功
+            success : function(result) {
+                $.toast("验证码发送成功", function() {
+                    var flag = 1;
+                    var i = 60;
+                    countDown();
+                    function countDown() {
+                        i = i - 1;
+
+                        if (i == 0) {
+                            $("#codeName").html("获取验证码");
+                            flag = 1;
+                            i = 60;
+                            return;
+                        }else{
+                            $("#codeName").html(i+"秒后重新发送");
+                            setTimeout(countDown,1000);
+                        }
+
+                    }
+                });
+            },
+            //请求失败，包含具体的错误信息
+            error : function(e){
+                console.log(e.status);
+                console.log(e.responseText);
+                $.toast("请求失败", "forbidden");
+            }
+        })
+    }
+    //新用户注册
+    function register(){
+     window.location.href = "register.html";
+    }
 
 </script>
 </body>
