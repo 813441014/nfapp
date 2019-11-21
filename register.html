@@ -21,7 +21,7 @@
     </div>
     <div class="uli">
         <div class="mainFlex">
-            <div class="itemsBox active">
+            <div class="itemsBox active" data-index="0">
                 <p class="name">农户</p>
                 <div class="labelImg">
                          <img src="image/navor01.png" alt="">
@@ -37,7 +37,7 @@
                 </div>
                 </label>
             </div>
-         <div class="itemsBox">
+         <div class="itemsBox"  data-index="1">
            <p class="name">商家</p>
 
                <div class="labelImg">
@@ -65,9 +65,11 @@
 <script>
     $(function(){
         getRem();
-        $(".mainFlex .itemsBox").click(function(){
+        $(".mainFlex .itemsBox").click(function(e){
+            console.log(e);
+            console.log(e.currentTarget.dataset.index);
             $(this).addClass("active").siblings().removeClass("active");
-            window.location.href="register_news.html"
+            window.location.href="register_news.html?type="+e.currentTarget.dataset.index
         })
     })
     function inp_cli(){

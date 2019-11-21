@@ -192,6 +192,7 @@ body{
 .flexEnd{
     flex: 1;
     display: flex;
+    align-items: center;
     justify-content: flex-end;
 }
 .mainFlex input{
@@ -252,4 +253,7 @@ body{
 .endInput input{
     width: 100%;
     margin-right: 0.2rem;
+}
+.addFiles{
+    display: none;
 }

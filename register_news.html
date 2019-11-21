@@ -38,34 +38,40 @@
                 </div>
             </div>
         </div>
-        <div class="mainFlex">
+        <div class="mainFlex addCard">
             <p>证件号码</p>
             <div class="flexEnd">
                 <input type="text" placeholder="请输入证件号码" id="cardNum">
             </div>
         </div>
-        <div class="main imgtype " id="addCard">
+        <div class="mainFlex addFiles">
+            <p>营业执照</p>
+            <div class="flexEnd">
+                <input type="text" placeholder="请输入营业执照" id="photo_number">
+            </div>
+        </div>
+        <div class="main imgtype" id="addCard">
             <p>上传身份证</p>
-            <div class="imgUli">
-                <div class="imgLi">
-                    <img src="image/banner.png" alt="">
-                </div>
-                <div class="addImg">
+            <div class="imgUli "  id="cardImg">
+<!--                <div class="imgLi">-->
+<!--                    <img src="image/banner.png" alt="">-->
+<!--                </div>-->
+                <div class="addImg" id="addCardimg">
                     <span class="iconfont icon-add"></span>
                     <p>添加图片</p>
-                    <input type="file">
+                    <input type="file" onChange="cardUrl(event)" id="cardId">
                 </div>
 
             </div>
         </div>
 
-        <div class="main imgtype " id="addFiles">
+        <div class="main imgtype" id="addFiles">
             <p>上传营业执照号</p>
-            <div class="imgUli">
-                <div class="imgLi">
-                    <img src="image/banner.png" alt="">
-                </div>
-                <div class="addImg">
+            <div class="imgUli" class="yyImg">
+<!--                <div class="imgLi">-->
+<!--                    <img src="image/banner.png" alt="">-->
+<!--                </div>-->
+                <div class="addImg" id="">
                     <span class="iconfont icon-add"></span>
                     <p>添加图片</p>
                     <input type="file">
@@ -94,7 +100,7 @@
                     <input type="text"  placeholder="请输入验证码" id="codeNum">
                 </div>
 
-               <button class="rightDiv">
+               <button class="rightDiv" onclick="getCode()" id="codeName">
                    获取验证码
                </button>
             </div>
@@ -112,8 +118,11 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>
 <script>
+    var photo_type = 1;
     $(function(){
         getRem();
+        $.toast.prototype.defaults.duration = 800;
+
         $("#cityPicker").cityPicker({
             title: "请选择收货地址",
             onChange:function(e) {
@@ -121,38 +130,23 @@
                 $("#cityPicker").html(e.displayValue[0]+e.displayValue[1]+e.displayValue[2]);
             }
         });
-        $("#job").select({
-            title: "选择身份",
-            items: ["农户", "商户","卖家"],
-            onChange:function(e){
-                console.log(e);
-                $(".type").css("display","none");
-                $(".imgtype").css("display","none");
-                $("#job").html(e.values);
-                if(e.values == "商户"){
-                    $(".type01").css("display","flex");
-                    $(".imgtype01").css("display","block");
-                }else if(e.values == "农户"){
-                    $(".type02").css("display","flex");
-                    $(".imgtype02").css("display","block");
-                }else{
-                    $(".type02").css("display","flex");
-                    $(".type03").css("display","flex");
-                    $(".imgtype02").css("display","block");
-                }
 
-            }
-        });
         $("#radio_main div").click(function(){
             console.log($(this));
             $(this).addClass("radio_active").siblings().removeClass("radio_active");
             console.log($(this).context)
             if($(this).context.dataset.index == 0){
+                 $(".addCard").css("display","flex");
                  $("#addCard").css("display","block");
-                 $("#addFiles").css("display","none")
+                $("#addFiles").css("display","none");
+                 $(".addFiles").css("display","none");
+                photo_type = 1;
             }else{
+                $(".addFiles").css("display","flex");
+                $("#addFiles").css("display","block");
                 $("#addCard").css("display","none");
-                $("#addFiles").css("display","block")
+                $(".addCard").css("display","none");
+                photo_type = 2;
             }
         })
     })
@@ -160,9 +154,205 @@
         $("#search").css("display","none");
         $("#input_search").css("display","flex")
     }
+    //点击下一步
 
     function nextStep(){
-        window.location.href="set_passs.html"
+        var type = getQueryString("type");
+        var name = $("#realName").val();
+        var phone = $("#phone").val();
+        var address=$("#cityPicker").html();
+        var photo_number_sf = $("#cardNum").val();
+        var photo_number_yy = $("#photo_number").val();
+        var photo_pic_sf = "";
+        var  photo_pic_yy = "";
+        var code = $("#codeNum").val();
+        var sf_len = $("#cardImg .imgLi img");
+        sf_len.each(function(){
+            console.log($(this).attr("src"));
+            photo_pic_sf += $(this).attr("src");
+            photo_pic_sf += ","
+        })
+        console.log(sf_len);
+        console.log(photo_pic_sf);
+        photo_pic_sf=photo_pic_sf.substring(0,photo_pic_sf.length-1);
+        // for
+
+
+        var yy_len = $("#yyImg .imgLi img");
+        yy_len.each(function(){
+            console.log($(this).attr("src"));
+            photo_pic_yy += $(this).attr("src");
+            photo_pic_yy += ","
+        });
+        console.log(yy_len);
+        console.log(photo_pic_yy);
+        photo_pic_yy=photo_pic_yy.substring(0,photo_pic_yy.length-1)
+        // window.location.href="set_passs.html"
+
+
+        if(name == ""){
+            $.toast("请输入真实姓名","forbidden");
+            return false
+        }
+        if(phone == ""){
+            $.toast("请输入手机号", "forbidden");
+            return false;
+        }else{
+            if(!(/^1[3456789]\d{9}$/.test(phone))){
+                $.toast("手机号码有误，请重填", "forbidden");
+                return false;
+            }
+        }
+        if(address == "" || address == "请选择"){
+            $.toast("请选择地址", "forbidden");
+            return false;
+        }
+
+        if(photo_type == 1){
+            if(photo_number_sf == ""){
+                $.toast("请输入证件号码", "forbidden");
+                return false;
+            }
+            if(photo_pic_sf == ""){
+                $.toast("请选择身份证图片", "forbidden");
+                return false;
+            }
+        }else{
+            if(photo_number_yy == ""){
+                $.toast("请输入营业执照号码", "forbidden");
+                return false;
+            }
+            if(photo_pic_yy == ""){
+                $.toast("请选择营业执照图片", "forbidden");
+                return false;
+            }
+        }
+        if(code == ""){
+            $.toast("请输入验证码", "forbidden");
+            return false;
+
+
+        }
+        window.location.href="set_passs.html?type="+type+"&name="+ name+"&phone="+phone+"&photo_type="+photo_type+"&address="+ address+"&photo_number_sf="+photo_number_sf +"&photo_number_yy="+photo_number_yy+"&photo_pic_sf="+photo_pic_sf+"&photo_pic_yy="+photo_pic_yy+"&code="+code
+    }
+   //   上传身份证
+    function cardUrl(e){
+        console.info(e.target.files[0]);//图片文件
+        var dom =$("input[id^='cardId']")[0];
+        console.info(dom.value);//这个是文件的路径 C:\fakepath\icon (5).png
+        console.log(e.target.value);//这个也是文件的路径和上面的dom.value是一样的
+        var reader = new FileReader();
+        reader.onload = (function (file) {
+            return function (e) {
+                console.info(this.result); //这个就是base64的数据了
+                upLoad(this.result,1);
+                // var sss=$("#showImage");
+                // $("#showImage")[0].src=this.result;
+            };
+        })(e.target.files[0]);
+        reader.readAsDataURL(e.target.files[0]);
+    }
+
+
+//    上传文件
+    function upLoad(imgUrl,num){
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            dataType: "json",
+            //请求地址
+            url : mainUrl + "upload/Upload/base64_image_upload",
+            //数据，json字符串
+            data : {
+                base64:imgUrl
+            },
+            //请求成功
+            success : function(result) {
+                if(result.code == 0){
+                    var img = result.data.imageSrc;
+                    $.toast("上传图片成功", function() {
+                        if(num == 1){
+                            var string = '<div class="imgLi">';
+                               string += '<img src="'+img+'" alt="">';
+                               string += '</div>';
+
+
+                            $(string).insertBefore('#addCardimg');   //向节点前添加兄弟节点
+                        }
+                    });
+                }else{
+                    $.toast(result.msg,"forbidden");
+                }
+
+            },
+            //请求失败，包含具体的错误信息
+            error : function(e){
+                console.log(e.status);
+                console.log(e.responseText);
+                $.toast("请求失败", "forbidden");
+            }
+        })
+    }
+
+    //获取验证码
+    function getCode(){
+        var  phone = $("#phone").val();
+        if(phone == ""){
+            $.toast("请输入手机号", "forbidden");
+            return false;
+        }else{
+            if(!(/^1[3456789]\d{9}$/.test(phone))){
+                alert("手机号码有误，请重填");
+                return false;
+            }
+        }
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            dataType: "json",
+            //请求地址
+            url : mainUrl + "message/Code/code",
+            //数据，json字符串
+            data : {
+                phone,
+                type:2
+            },
+            //请求成功
+            success : function(result) {
+                if(result.code == 0) {
+                    $.toast("验证码发送成功", function () {
+                        var flag = 1;
+                        var i = 60;
+                        countDown();
+
+                        function countDown() {
+                            i = i - 1;
+
+                            if (i == 0) {
+                                $("#codeName").html("获取验证码");
+                                flag = 1;
+                                i = 60;
+                                return;
+                            } else {
+                                $("#codeName").html(i + "秒后重新发送");
+                                setTimeout(countDown, 1000);
+                            }
+
+                        }
+                    });
+                }else{
+                    $.toast(result.msg,"forbidden");
+                }
+            },
+            //请求失败，包含具体的错误信息
+            error : function(e){
+                console.log(e.status);
+                console.log(e.responseText);
+                $.toast("请求失败", "forbidden");
+            }
+        })
     }
 </script>
 </body>

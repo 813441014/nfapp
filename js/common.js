@@ -23,3 +23,25 @@ function getRem(){
 
 
 var mainUrl ="http://llf.zjqqbdf.cn/nongfu/app/"
+
+
+
+//获取上一页传过来的值
+function getQueryString(name) {
+
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+
+    var r = window.location.search.substr(1).match(reg);
+
+    if (r != null) {
+        // console.log(unescape(r[2]));
+        // console.log(encodeURI(r[2]));
+        // console.log(escape(r[2]));
+        console.log(decodeURI(r[2]));
+        return escape(r[2]);
+
+    }
+
+    return null;
+
+}

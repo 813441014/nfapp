@@ -107,6 +107,11 @@
             if(phone == ""){
                 $.toast("请输入手机号", "forbidden");
                 return false
+            }else{
+                if(!(/^1[3456789]\d{9}$/.test(phone))){
+                    $.toast("手机号码有误，请重填", "forbidden");
+                    return false;
+                }
             }
             if(code == ""){
                 $.toast("请输入验证码", "forbidden");
@@ -118,6 +123,11 @@
             if(phone == ""){
                 $.toast("请输入手机号", "forbidden");
                 return false
+            }else{
+                if(!(/^1[3456789]\d{9}$/.test(phone))){
+                    $.toast("手机号码有误，请重填", "forbidden");
+                    return false;
+                }
             }
             if(password == ""){
                 $.toast("请输入密码", "forbidden");
@@ -140,9 +150,13 @@
             },
             //请求成功
             success : function(result) {
-                $.toast("登录成功", function() {
-                  window.location.href="index.html"
-                });
+                if(result.code == 0) {
+                    $.toast("登录成功", function () {
+                        window.location.href = "index.html"
+                    });
+                }else{
+                    $.toast(result.msg,"forbidden");
+                }
             },
             //请求失败，包含具体的错误信息
             error : function(e){
@@ -161,7 +175,7 @@
             return false;
         }else{
             if(!(/^1[3456789]\d{9}$/.test(phone))){
-                alert("手机号码有误，请重填");
+                $.toast("手机号码有误，请重填", "forbidden");
                 return false;
             }
         }
@@ -179,25 +193,30 @@
             },
             //请求成功
             success : function(result) {
-                $.toast("验证码发送成功", function() {
-                    var flag = 1;
-                    var i = 60;
-                    countDown();
-                    function countDown() {
-                        i = i - 1;
+                if(result.code == 0) {
+                    $.toast("验证码发送成功", function () {
+                        var flag = 1;
+                        var i = 60;
+                        countDown();
 
-                        if (i == 0) {
-                            $("#codeName").html("获取验证码");
-                            flag = 1;
-                            i = 60;
-                            return;
-                        }else{
-                            $("#codeName").html(i+"秒后重新发送");
-                            setTimeout(countDown,1000);
+                        function countDown() {
+                            i = i - 1;
+
+                            if (i == 0) {
+                                $("#codeName").html("获取验证码");
+                                flag = 1;
+                                i = 60;
+                                return;
+                            } else {
+                                $("#codeName").html(i + "秒后重新发送");
+                                setTimeout(countDown, 1000);
+                            }
+
                         }
-
-                    }
-                });
+                    });
+                }else{
+                    $.toast(result.msg,"forbidden");
+                }
             },
             //请求失败，包含具体的错误信息
             error : function(e){
