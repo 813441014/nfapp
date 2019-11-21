@@ -35,6 +35,7 @@
         <div class="fixDiv" onclick="toLogin()">
             <p>注册并登录</p>
         </div>
+<!--        <div  onclick="b()">111</div>-->
     </div>
 
 </div>
@@ -85,8 +86,8 @@
                 //数据，json字符串
                 data : {
                     phone,
-                    type,
-                    name,
+                    user_type:type,
+                    user_name: name,
                     photo_type,
                     address,
                     photo_number_sf,
@@ -101,7 +102,7 @@
                 //请求成功
                 success : function(result) {
                     if(result.code == 0) {
-                        window.location.href="index.html"
+                        window.history.go(-3);
                     }else{
                         $.toast(result.msg,"forbidden");
                     }
