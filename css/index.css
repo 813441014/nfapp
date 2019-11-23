@@ -360,3 +360,6 @@ overflow: hidden;
     font-size: 0.32rem;
     line-height: 0.6rem;
 }
+.swiper-slide img{
+    width: 100%;
+}
