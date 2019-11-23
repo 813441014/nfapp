@@ -8,11 +8,40 @@
     <link rel="stylesheet" href="css/weui.min.css">
     <link rel="stylesheet" href="css/jquery-weui.min.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/news_details.css">
 
 
 </head>
 <body>
 <div class="container">
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+
+        <div class="rightIcon">
+            <p class="grayColor">
+                <span class="iconfont icon-dianzan"></span>
+            </p>
+            <p class="greenColor">
+                <span class="iconfont icon-dianzan"></span>
+            </p>
+
+        </div>
+    </div>
+    <div class="content">
+        <p class="title" id="title"></p>
+        <div class="details">
+            <p id="dataTime">2019年9月10日</p>
+            <p id="liuLan">989次浏览</p>
+            <div class="main">
+                <p class="grayColor">
+                    <span class="iconfont icon-dianzan"></span>
+                </p>
+                <span id="zan">19</span>
+            </div>
+        </div>
+    </div>
     <div class="htmlDiv"></div>
 </div>
 <!--   <script src="js/jquery-3.4.1.min.js"></script>-->
@@ -46,7 +75,11 @@
             //请求成功
             success : function(result) {
                 if(result.code == 0){
-                   $(".htmlDiv").html(result.data.content)
+                   $(".htmlDiv").html(result.data.content);
+                   $("#title").html(result.data.title);
+                    $("#liuLan").html(result.data.browse +"次浏览");
+                    $("#zan").html(result.data.awesome);
+                    $("#dataTime").html(formatTime(result.data.add_time))
                 }else{
                     $.toast(result.msg, "forbidden");
                 }

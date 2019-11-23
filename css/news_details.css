@@ -7,6 +7,7 @@
     align-items: center;
     height: 1.17rem;
     padding: 0 0.53rem;
+    background: #ffffff;
 }
 .goBack{
     height: 0.53rem;
@@ -26,8 +27,8 @@
 
 }
  .grayColor{
-     border: 1px dashed  #3699ff;
-     background:  #dcf8ff;
+     /*border: 1px dashed  #3699ff;*/
+     /*background:  #dcf8ff;*/
      width:0.53rem;
      height: 0.53rem;
      line-height: 0.53rem;
@@ -39,8 +40,8 @@
     color: #a0a0a0;
 }
 .rightIcon .greenColor{
-    border: 1px dashed  #3699ff;
-    background:  #dcf8ff;
+    /*border: 1px dashed  #3699ff;*/
+    /*background:  #dcf8ff;*/
     width:0.53rem;
     height: 0.53rem;
     line-height: 0.53rem;
@@ -89,4 +90,10 @@
 
     height: auto;
     display: block;
+}
+.htmlDiv{
+    padding: 0 0.2rem;
+}
+.htmlDiv img{
+    max-width: 100%;
 }
