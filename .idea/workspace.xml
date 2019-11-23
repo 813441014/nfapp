@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22c918bf-36be-4d1c-819c-f01957f84652" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/css/jquery-weui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/weui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index_details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/city-picker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/jquery-weui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/jquery.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chooseType.html" beforeDir="false" afterPath="$PROJECT_DIR$/chooseType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chooseWeight.html" beforeDir="false" afterPath="$PROJECT_DIR$/chooseWeight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/location.html" beforeDir="false" afterPath="$PROJECT_DIR$/location.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/person.html" beforeDir="false" afterPath="$PROJECT_DIR$/person.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/person_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/person_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publish.html" beforeDir="false" afterPath="$PROJECT_DIR$/publish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/register_news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/search_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/service_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/service_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/set_passs.html" beforeDir="false" afterPath="$PROJECT_DIR$/set_passs.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +73,7 @@
       <workItem from="1574039695321" duration="11114000" />
       <workItem from="1574237352309" duration="4912000" />
       <workItem from="1574298655993" duration="14708000" />
-      <workItem from="1574472381573" duration="8286000" />
+      <workItem from="1574472381573" duration="8788000" />
     </task>
     <servers />
   </component>
