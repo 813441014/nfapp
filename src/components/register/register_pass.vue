@@ -65,7 +65,7 @@
                 }
                 this.ajax.post(this.mainUrl+ "user/Register/register",this.qs.stringify({
                         phone:_this.$route.query.phone,
-                        user_type:sessionStorage.getItem("type"),
+                        user_type:localStorage.getItem("type"),
                         user_name:_this.$route.query.name,
                         photo_type:_this.$route.query.photo_type,
                         address:_this.$route.query.address,

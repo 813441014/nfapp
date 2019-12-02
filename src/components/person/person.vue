@@ -83,9 +83,9 @@
             }
         },
         created(){
-            this.phone =  sessionStorage.getItem("phone");
-            this.name =  sessionStorage.getItem("userName");
-            this.integrity =  sessionStorage.getItem("integrity");
+            this.phone =  localStorage.getItem("phone");
+            this.name =  localStorage.getItem("userName");
+            this.integrity =  localStorage.getItem("integrity");
 
 
         },
@@ -96,7 +96,7 @@
                 })
             },
             loginOut(){
-            sessionStorage.clear();
+                localStorage.clear();
             this.$router.replace({
             path:"/login"
             })

@@ -65,7 +65,7 @@
             switchTabs(index){
                 this.selIndex = index;
                 //1 商家 2 农户
-                sessionStorage.setItem("type",index);
+                localStorage.setItem("type",index);
                 this.$router.push({
                     path:"/mainroute/index",
                     query:{

@@ -9,8 +9,9 @@
                     <span class="iconfont icon-xiala"></span>
                 </div>
                 <div class="navright">
-                    <img src="../../assets/image/navor01.png" alt="">
-                    <span>{{userName}}服务中心</span>
+                    <img v-if="type == 2" src="../../assets/image/navor01.png" alt="">
+                    <img v-else src="../../assets/image/navor02.png" alt="">
+                    <span>{{userName}}{{type == 2?'农户':'商家'}}服务中心</span>
                 </div>
             </div>
             <div class="search" >
@@ -157,25 +158,25 @@
               init_data:[
                   {
                       id:1,
-                      name:"土地流转",
+                      name:"土地出租/转让",
                       desc:"帮你快速定位",
                       img: require("../../assets/image/icon1.png")
                   },
                   {
                       id:2,
-                      name:"农机具供需服务",
+                      name:"农机具购买/求租",
                       desc:"为你提供快捷服务",
                       img: require("../../assets/image/icon2.png")
                   },
                   {
                       id:3,
-                      name:"农副产品供需",
+                      name:"农副产品销售",
                       desc:"快速定位问题",
                       img: require("../../assets/image/icon3.png")
                   },
                   {
                       id:4,
-                      name:"农资供需",
+                      name:"农资求购",
                       desc:"贴心服务只为你",
                       img: require("../../assets/image/icon4.png")
                   },
@@ -187,7 +188,7 @@
                   },
                   {
                       id:6,
-                      name:"劳务供需",
+                      name:"打工",
                       desc:"零距离基础",
                       img: require("../../assets/image/icon6.png")
                   }
@@ -235,17 +236,17 @@
                   address:""
 
               },
-              type:sessionStorage.getItem("type")
+              type:localStorage.getItem("type")
           }
         },
         created(){
-            this.userName= sessionStorage.getItem("userName")
+            this.userName= localStorage.getItem("userName")
            this.initData()
         },
         watch:{
         },
         mounted(){
-            if(sessionStorage.getItem("area_id")){
+            if(localStorage.getItem("area_id")){
                 this.comparison()
             }else{
               this.getLocation()
@@ -255,9 +256,9 @@
         methods:{
            comparison(){
 
-                var province = sessionStorage.getItem("province_id");
-                var city = sessionStorage.getItem("city_id");
-                var area = sessionStorage.getItem("area_id");
+                var province = localStorage.getItem("province_id");
+                var city = localStorage.getItem("city_id");
+                var area = localStorage.getItem("area_id");
                 this.city(province,city,area)
 
             },
@@ -281,9 +282,9 @@
                             _this.id03 = res.data.data[i].region_name
                         }
                     }
-                    sessionStorage.setItem("province_name",_this.id01);
-                  sessionStorage.setItem("city_name",_this.id02);
-                   sessionStorage.setItem("area_name",_this.id03);
+                    localStorage.setItem("province_name",_this.id01);
+                    localStorage.setItem("city_name",_this.id02);
+                    localStorage.setItem("area_name",_this.id03);
                    _this.$set(_this.location,"area",_this.id03)
 
 
@@ -357,12 +358,12 @@
                     _this.$set(_this.location, 'city', addComp.city);
                     _this.$set(_this.location, 'area', addComp.district);
 
-                     sessionStorage.setItem("address_name",addressdetails);
+                    localStorage.setItem("address_name",addressdetails);
 
-                      sessionStorage.setItem("province_name",addComp.province);
-                  sessionStorage.setItem("city_name",addComp.city);
-                   sessionStorage.setItem("area_name",addComp.district);
-                   console.log(sessionStorage.getItem("province_name"))
+                    localStorage.setItem("province_name",addComp.province);
+                    localStorage.setItem("city_name",addComp.city);
+                    localStorage.setItem("area_name",addComp.district);
+                   console.log(localStorage.getItem("province_name"))
                     _this.selCity = addressdetails;
                 });
 

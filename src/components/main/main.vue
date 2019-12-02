@@ -131,11 +131,11 @@
                         img: require("../../assets/image/icon6.png")
                     }
                 ],
-                type:sessionStorage.getItem("type")
+                type:localStorage.getItem("type")
             }
         },
         created(){
-            this.type = sessionStorage.getItem("type");
+            this.type = localStorage.getItem("type");
             console.log(this.type )
         },
         methods:{

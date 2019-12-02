@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="main imgtype" id="addCard" v-if="selIndex == 0">
-                <p>上传身份证</p>
+                <p>选填</p>
                 <div class="imgUli"  id="cardImg">
                     <div v-for="items in cardUrl" class="imgLi" :key="items">
                         <img :src="items" alt="">
@@ -52,7 +52,7 @@
             </div>
 
             <div class="main imgtype" id="addFiles" v-if="selIndex == 1">
-                <p>上传营业执照号</p>
+                <p>上传营业资质/证照</p>
                 <div class="imgUli" id="yyImg">
                                     <div v-for="items in zzImg" class="imgLi" :key="items">
                                         <img :src="items" :index="index" alt="">
@@ -663,11 +663,11 @@
 
                         }
                     }
-                    if(this.cardUrl.length == 0){
-                        // $.toast("请选择身份证图片", "forbidden");
-                        Dialog({ message: '请选择身份证图片',confirmButtonColor:"#1bb339" });
-                        return false;
-                    }
+                    // if(this.cardUrl.length == 0){
+                    //     // $.toast("请选择身份证图片", "forbidden");
+                    //     Dialog({ message: '请选择身份证图片',confirmButtonColor:"#1bb339" });
+                    //     return false;
+                    // }
                 }else{
                     if(this.photo_number == ""){
                         // $.toast("请输入营业执照号码", "forbidden");

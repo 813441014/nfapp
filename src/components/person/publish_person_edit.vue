@@ -142,13 +142,13 @@
             }
         },
         created(){
-        this.$set(this.selId, 'province', sessionStorage.getItem("province_id"));
-         this.$set(this.selId, 'city', sessionStorage.getItem("city_id"));
-         this.$set(this.selId, 'area', sessionStorage.getItem("area_id"));
-         var address_name = sessionStorage.getItem("address_name");
-         var province_name = sessionStorage.getItem("province_name");
-         var city_name = sessionStorage.getItem("city_name");
-         var area_name = sessionStorage.getItem("area_name");
+        this.$set(this.selId, 'province', localStorage.getItem("province_id"));
+         this.$set(this.selId, 'city', localStorage.getItem("city_id"));
+         this.$set(this.selId, 'area', localStorage.getItem("area_id"));
+         var address_name = localStorage.getItem("address_name");
+         var province_name = localStorage.getItem("province_name");
+         var city_name = localStorage.getItem("city_name");
+         var area_name = localStorage.getItem("area_name");
           this.$set(this.location, 'address', address_name);
         this.$set(this.location, 'province', province_name);
         this.$set(this.location, 'city',  city_name);
@@ -156,9 +156,9 @@
             console.log(this.$route.query);
             this.type_choose = this.$route.query.goods_style;
             this.creat_time = (new Date()).getTime();
-            console.log(sessionStorage.getItem("type"));
-            this.goods_style = sessionStorage.getItem("type");
-            this.userId = sessionStorage.getItem("userId");
+            console.log(localStorage.getItem("type"));
+            this.goods_style = localStorage.getItem("type");
+            this.userId = localStorage.getItem("userId");
             if(this.$route.query.sex ==  0){
                 this.$set(this.selSex,"index",0);
                 this.$set(this.selSex,"name","女")

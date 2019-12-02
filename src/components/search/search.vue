@@ -158,7 +158,7 @@
             }
         },
         created(){
-            this.userId = sessionStorage.getItem("userId");
+            this.userId = localStorage.getItem("userId");
             if(this.$route.query.id){
                 this.type = this.$route.query.id
             }

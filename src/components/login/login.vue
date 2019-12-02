@@ -230,16 +230,16 @@
                 ).then((result)=>{
 
                     if(result.data.code == 0) {
-                        sessionStorage.setItem("userId",result.data.data.user_id);
-                        sessionStorage.setItem("userName",result.data.data.user_name);
-                        sessionStorage.setItem("userName",result.data.data.user_name);
-                        sessionStorage.setItem("address",result.data.data.address);
-                        sessionStorage.setItem("phone",result.data.data.phone);
-                        sessionStorage.setItem("integrity",result.data.data.integrity);
-                         sessionStorage.setItem("province_id",result.data.data.province_id);
-                          sessionStorage.setItem("city_id",result.data.data.city_id);
-                           sessionStorage.setItem("area_id",result.data.data.area_id);
-                            sessionStorage.setItem("type",result.data.data.user_type);
+                        localStorage.setItem("userId",result.data.data.user_id);
+                        localStorage.setItem("userName",result.data.data.user_name);
+                        localStorage.setItem("userName",result.data.data.user_name);
+                        localStorage.setItem("address",result.data.data.address);
+                        localStorage.setItem("phone",result.data.data.phone);
+                        localStorage.setItem("integrity",result.data.data.integrity);
+                        localStorage.setItem("province_id",result.data.data.province_id);
+                        localStorage.setItem("city_id",result.data.data.city_id);
+                        localStorage.setItem("area_id",result.data.data.area_id);
+                        localStorage.setItem("type",result.data.data.user_type);
                            
 
                         _this.$router.replace("/mainroute/index")
@@ -257,7 +257,7 @@
                 this.$router.push("/register_news")
             },
             toUrl(){
-                var type = sessionStorage.getItem("type");
+                var type = localStorage.getItem("type");
                 if(type == 2){
                     window.location.href='n.html'
                 }else{
