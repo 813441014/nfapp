@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置密码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/set_pass.css">
+
+</head>
+<body>
+<div >
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+        <p>设置密码</p>
+    </div>
+    <div class="uli">
+        <div class="mainFlex">
+            <p>密码</p>
+            <div>
+                <input type="password" placeholder="请输入密码" id="oldPass">
+            </div>
+        </div>
+        <div class="mainFlex">
+            <p>确认密码</p>
+            <div>
+                <input type="password" placeholder="请再次输入密码" id="newPass">
+            </div>
+        </div>
+        <div class="fixDiv" onclick="toLogin()">
+            <p>注册并登录</p>
+        </div>
+<!--        <div  onclick="b()">111</div>-->
+    </div>
+
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/commonJs.js"> </script>
+
+<script src="js/jquery-weui.min.js"></script>
+<script src="js/city-picker.min.js"></script>
+
+<script>
+    $(function(){
+        getRem()
+    })
+    function inp_cli(){
+        $("#search").css("display","none");
+        $("#input_search").css("display","flex")
+    }
+     function toLogin(){
+        var pass1 = $("#oldPass").val();
+        var pass2 = $("#newPass").val();
+         if(pass1 == ""){
+             $.toast("请输入密码", "forbidden");
+             return false
+         }
+         if(pass2 == ""){
+             $.toast("请输入确认密码", "forbidden");
+             return false
+         }
+         var type = getQueryString("type");
+         var name =getQueryString("name");
+         var phone =getQueryString("phone");
+         var photo_type =getQueryString("photo_type");
+         var address =getQueryString("address");
+         var photo_number_sf =getQueryString("photo_number_sf");
+         var photo_number_yy =getQueryString("photo_number_yy");
+         var photo_pic_sf =getQueryString("photo_pic_sf");
+         var photo_pic_yy =getQueryString("photo_pic_yy");
+         var code =getQueryString("code");
+         console.log(name);
+
+         if(pass1 == pass2){
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                dataType: "json",
+                //请求地址
+                url : mainUrl + "user/Register/register",
+                //数据，json字符串
+                data : {
+                    phone,
+                    user_type:type,
+                    user_name: name,
+                    photo_type,
+                    address,
+                    photo_number_sf,
+                    photo_number_yy,
+                    photo_pic_sf,
+                    photo_pic_yy,
+                    code,
+                    password:pass2
+
+
+                },
+                //请求成功
+                success : function(result) {
+                    if(result.code == 0) {
+                        window.history.go(-3);
+                    }else{
+                        $.toast(result.msg,"forbidden");
+                    }
+                },
+                //请求失败，包含具体的错误信息
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                    $.toast("请求失败", "forbidden");
+                }
+            })
+        }else{
+            $.toast("两次密码输入不一致","forbidden");
+            return false
+        }
+
+     }
+</script>
+</body>
+</html>

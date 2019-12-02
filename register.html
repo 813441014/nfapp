@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>免费注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.min.css">
+    <link rel="stylesheet" href="css/register.css">
+
+</head>
+<body>
+<div >
+    <div class="header">
+        <div class="goBack">
+            <span class="iconfont icon-fanhui1"></span>
+        </div>
+        <p>免费注册</p>
+    </div>
+    <div class="uli">
+        <div class="mainFlex">
+            <div class="itemsBox active" data-index="2">
+                <p class="name">农户</p>
+                <div class="labelImg">
+                         <img src="image/navor01.png" alt="">
+                         <div>
+                             <p>农民／种植大户</p>
+                             <p>家庭农场主</p>
+                             <p>种养专业合作社</p>
+                             <p>其它</p>
+                         </div>
+                </div>
+                <div class="rightIcon">
+
+                </div>
+                </label>
+            </div>
+         <div class="itemsBox"  data-index="1">
+           <p class="name">商家</p>
+
+               <div class="labelImg">
+                   <img src="image/navor02.png" alt="">
+                   <div>
+                       <p>农业企业／农机具厂商</p>
+                       <p>农资厂商</p>
+                       <p>合作社／个人</p>
+                       <p>其它</p>
+                   </div>
+               </div>
+             <div class="rightIcon">
+
+             </div>
+       </div>
+
+    </div>
+    </div>
+
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/commonJs.js"> </script>
+
+<!--<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/city-picker.min.js"></script>-->
+<script src="js/city-picker.min.js"></script>
+<script>
+    $(function(){
+        getRem();
+        $(".mainFlex .itemsBox").click(function(e){
+            console.log(e);
+            console.log(e.currentTarget.dataset.index);
+            $(this).addClass("active").siblings().removeClass("active");
+            window.location.href="register_news.html?type="+e.currentTarget.dataset.index
+        })
+    })
+    function inp_cli(){
+        $("#search").css("display","none");
+        $("#input_search").css("display","flex")
+    }
+
+</script>
+</body>
+</html>

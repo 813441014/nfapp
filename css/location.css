@@ -1,0 +1,92 @@
+
+.header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: 1.17rem;
+    padding: 0 0.53rem;
+    background: #f5f5f5;
+}
+body{
+    background:#f5f5f5;
+}
+.goBack{
+    height: 0.53rem;
+    line-height: 0.53rem;
+    position: absolute;
+    top: 0.32rem;
+    left: 0.53rem;
+}
+.goBack span{
+    display: block;
+    color: #999999;
+    font-size: 0.53rem;
+}
+.header{
+    border-bottom: 1px solid #e5e5e5;
+}
+.header p{
+    width: 100%;
+    color: #000;
+    font-size: 0.4rem;
+    text-align: center;
+}
+.uli{
+    padding-top: 1.17rem;
+}
+.list{
+    background: #ffffff;
+    margin-top: 0.24rem;
+    font-size: 0.37rem;
+    height: 1.33rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.58rem;
+}
+.list input{
+    height: 1.33rem;
+    border: none;
+    width: 100%;
+}
+.list .boxItems{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+}
+.sureBtn{
+    width: 8.8rem;
+    height: 1.14rem;
+    line-height: 1.14rem;
+    background: #1bb339;
+    border-radius: 1rem;
+    color: #d8d8d8;
+    text-align: center;
+    font-size: 0.37rem;
+    margin: auto;
+    margin-top: 0.29rem;
+}
+.toolbar, .toolbar .title{
+    font-size: 0.34rem;
+    line-height: 2rem;
+}
+.weui-picker-modal .picker-item{
+    font-size: 0.29rem;
+}
+.toolbar .toolbar-inner{
+    height: 2rem;
+}
+.toolbar .picker-button{
+    height:2rem;
+    line-height: 2rem;
+}
+.weui-picker-modal .picker-modal-inner {
+    position: relative;
+    height: 7.8rem;
+}
+.weui-picker-modal{
+    height:10rem;
+}
