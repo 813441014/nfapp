@@ -1,0 +1,723 @@
+<template>
+    <div>
+        <div class="header">
+            <div class="goBack" @click="goBack()">
+                <span class="iconfont icon-fanhui1"></span>
+            </div>
+            <p>发布信息</p>
+
+            <span class="btn" @click="sure()">修改</span>
+        </div>
+        <div class="container">
+            <div class="mainFlex"  v-if="goods_style_falg">
+                <p class="title">交易类型</p>
+                <div @click="todeal()">
+                    <input type="text" placeholder="请选择交易类型" readonly="readonly" :value="selDeal.name">
+                    <span class="iconfont icon-xiayibu" ></span>
+                </div>
+                 <span class="leftIcon">*</span>
+            </div>
+            <div class="mainFlex">
+                <p class="title">{{typeName}}</p>
+                <div @click="toType()">
+                    <input type="text" :placeholder="typePlace" readonly="readonly" :value="selType.name">
+                    <span class="iconfont icon-xiayibu" ></span>
+                </div>
+                 <span class="leftIcon">*</span>
+            </div>
+            <div class="mainFlex">
+                <p class="title">标题</p>
+                <div>
+                    <input type="text" placeholder="请输入信息要点，20字以内" v-model="goods_name">
+                    <!--                <span class="iconfont icon-xiayibu"></span>-->
+                </div>
+                 <span class="leftIcon">*</span>
+            </div>
+            <div class="main">
+                <p>商品图片</p>
+                <div class="imgUli">
+                    <div class="imgLi" v-for="(items,index) in image" :key="index">
+                        <img :src="items" alt="">
+                    </div>
+                    <div class="addImg" v-if="image.length < 10">
+                        <span class="iconfont icon-add"></span>
+                        <p>添加图片</p>
+                        <input type="file" @change="zzUrl($event)">
+                    </div>
+
+                </div>
+            </div>
+            <div class="mainFlex">
+                <p class="title">单位</p>
+                <div>
+                    <!--                <input type="text" placeholder="请输入信息要点" readonly="readonly" :value="selUnit.name" >-->
+                    <span>{{selUnit.name}}</span>
+                    <span class="iconfont icon-xiayibu" @click="toUnit()"></span>
+                </div>
+                 <span class="leftIcon">*</span>
+            </div>
+            <div class="mainFlex">
+                <p class="title">数量</p>
+                <div>
+                    <input type="number" placeholder="请输入数量" v-model="num">
+                    <span>{{selUnit.name}}</span>
+                </div>
+                 <span class="leftIcon">*</span>
+            </div>
+            <div class="mainFlex">
+                <p class="title">价格</p>
+                <div>
+                    <input type="number" placeholder="如不填写默认面议" v-model="price">
+                    <span>元/{{selUnit.name}}</span>
+                </div>
+            </div>
+            <div class="mainFlex">
+                <p class="title">联系电话</p>
+                <div>
+                    <input type="text" placeholder="请输入电话" v-model="phone">
+                </div>
+            </div>
+            <div class="mainFlex">
+            <p class="title">位置</p>
+            <div>
+               <div @click="gain()">
+                   {{selCity == ""?'请选择':selCity}}
+               </div>
+            </div>
+            <span class="leftIcon">*</span>
+        </div>
+
+        <div class="mainFlex">
+            <p class="title">详细地址</p>
+            <div>
+                <input type="text" placeholder="请输入详细地址" v-model="addressName">
+            </div>
+            <span class="leftIcon">*</span>
+        </div>
+            <div class="main">
+                <p class="title">描述</p>
+                <div>
+                <textarea type="text" :placeholder="place"  v-model="description">
+                </textarea>
+                </div>
+            </div>
+        </div>
+        <chooseType v-if="choose_flag" :item="goodsType01" @chotype="chotype" @dismiss="dismiss" :typeTit="typeName"></chooseType>
+        <chooseUnit v-if="unit_flag" :item="unitType01" @chotype="chouni" @dismiss="dismiss"></chooseUnit>
+        <chooseDeal v-if="deal_flag" :item="goods_style_arr" @chotype="chodeal" @dismiss="dismiss"></chooseDeal>
+         <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+    </div>
+</template>
+
+<script>
+    import chooseType from "../../compomtent/type/type";
+    import chooseUnit from "../../compomtent/unit/unit"
+    import chooseDeal from "../../compomtent/deal/deal";
+    import { Toast } from 'vant';
+    import { Dialog } from 'vant';
+     import cityCompontents from '../../compomtent/city/city';
+    export default {
+        name: "publish_edit",
+        components:{
+            chooseType,
+            chooseUnit,chooseDeal,cityCompontents
+        },
+        data(){
+            return {
+                choose_flag:false,
+                unit_flag:false,
+                deal_flag:false,
+                goodsType01:[], //土地类型
+                unitType01:[], //单位
+                selType:{
+
+                }, //选择类型
+                selUnit:{
+
+                },//选择单位
+                selDeal:{
+
+                },
+                goods_name:"",
+                image:[],
+                goods_style:1,
+                userId:"",
+                creat_time:"",
+                sex:"",
+                age:"",
+                description:"",
+                type_choose:"",
+                addr:"",  //详细地址
+                goods_style_xi:"", //交易类型
+                goods_style_arr:[], //交易类型
+                goods_style_falg:false, //是否显示
+                title:"",
+                num:"", //数量
+                phone:"",
+                price:"",
+                typeName:"", //类型
+                typePlace:"", //类型
+                place:"",//place
+                address:{
+                    province_id:"",
+                    city_id:"",
+                    area_id:"",
+                    addr:"",
+                    longitude:"",
+                    latitude:""
+
+                },
+                sureFalg:true,
+                goods_id:"",
+                 show:false,
+                  selId:{
+
+                },
+                selCity:"",
+                addressName:"",
+                location:{
+
+                }
+
+
+
+
+            }
+        },
+        created(){
+
+         this.$set(this.selId, 'province', sessionStorage.getItem("province_id"));
+         this.$set(this.selId, 'city', sessionStorage.getItem("city_id"));
+         this.$set(this.selId, 'area', sessionStorage.getItem("area_id"));
+         var address_name = sessionStorage.getItem("address_name");
+         var province_name = sessionStorage.getItem("province_name");
+         var city_name = sessionStorage.getItem("city_name");
+         var area_name = sessionStorage.getItem("area_name");
+          this.$set(this.location, 'address', address_name);
+        this.$set(this.location, 'province', province_name);
+        this.$set(this.location, 'city',  city_name);
+        this.$set(this.location, 'area', area_name);
+            //    单位
+            this.unit();
+            console.log( this.$route.query);
+            this.type_choose = this.$route.query.goods_style;
+            this.creat_time = (new Date()).getTime();
+            console.log(sessionStorage.getItem("type"));
+            this.goods_style = sessionStorage.getItem("type");
+            this.userId = sessionStorage.getItem("userId");
+            var goods_style_arr = [];
+            var type = 1;
+            console.log(this.type_choose);
+
+
+            this.description = this.$route.query.description;
+            this.goods_name = this.$route.query.goods_name;
+            this.image = this.$route.query.image;
+            this.price = this.$route.query.price;
+            this.phone = this.$route.query.phone;
+            this.goods_id = this.$route.query.goods_id;
+            this.num = this.$route.query.num;
+            this.$set(this.selUnit,"name", this.$route.query.unit);
+            this.$set(this.selUnit,"id", this.$route.query.unit_name);
+            this.$set(this.selType,"name", this.$route.query.transa_name);
+            this.$set(this.selType,"id", this.$route.query.transa_id);
+            console.log(this.selDeal.name);
+            this.$set(this.selDeal,"id", this.$route.query.goods_style_xi);
+            var styleId = this.$route.query.goods_style_xi;
+            if(styleId == 1){
+                this.$set(this.selDeal,"name", "土地出租");
+            }else if(styleId == 2){
+                this.$set(this.selDeal,"name", "土地出让");
+            }else if(styleId == 3){
+                this.$set(this.selDeal,"name", "求租");
+            }else if(styleId == 4){
+                this.$set(this.selDeal,"name", "购买");
+            }else if(styleId == 11){
+                this.$set(this.selDeal,"name", "承包");
+            }else if(styleId == 12){
+                this.$set(this.selDeal,"name", "流转");
+            }else if(styleId == 13){
+                this.$set(this.selDeal,"name", "出租");
+            }else if(styleId == 14){
+                this.$set(this.selDeal,"name", "销售");
+            }
+
+            if(this.type_choose  == 1){
+                this.goods_style_arr =[
+                    {
+                        id:1,
+                        name:"土地出租"
+                    },
+                    {
+                        id:2,
+                        name:"土地出让"
+                    }
+                ]
+                this.goods_style_falg = true;
+                this.title = "土地出租/出让信息发布";
+                this.typeName="土地类型";
+                this.place="描述您土地等级及相关配套设施信息，有助于达成合作";
+                this.typePlace="请选择土地类型";
+                type = 1;
+
+            }else if(this.type_choose  == 2){
+                this.goods_style_arr =[
+                    {
+                        id:3,
+                        name:"求租"
+                    },
+                    {
+                        id:4,
+                        name:"购买"
+                    }
+                ]
+                this.goods_style_falg = true;
+                this.title = "农机具求租/购买信息发布";
+                this.typeName="农机具类型";
+                this.place="描述您求租或购买农机具品牌、参数及其他服务要求，有助于达成合作";
+                type = 2;
+                this.typePlace="请选择农机具类型";
+
+            }else if(this.type_choose  == 3){
+                this.title = "农副产品销售信息发布";
+                this.typeName="农副产品类型";
+                this.place="描述您销售产品的详细名称、种类、质量等内容，有助于达成合作"
+                this.typePlace="请选择农副产品类型";
+                type = 3;
+
+            }else if(this.type_choose  == 4){
+                this.title = "求购农资信息发布";
+                this.typeName="农资类型";
+                this.place="描述您求购农资的详细名称、种类、质量、参数及其他服务要求，有助于达成合作"
+                this.typePlace="请选择农资类型";
+                type = 4;
+
+            }else if(this.type_choose  == 5){
+                this.title = "订单种植信息发布";
+                this.typeName="订单种植类型";
+                this.place="详细描述您订单种植意向，有助于达成合作";
+                this.typePlace="请选择订单种植类型";
+                type = 3;
+
+            }else if(this.type_choose  == 6){
+
+
+            }else if(this.type_choose  == 11){
+                this.goods_style_arr =[
+                    {
+                        id:11,
+                        name:"承包"
+                    },
+                    {
+                        id:12,
+                        name:"流转"
+                    }
+                ]
+                this.goods_style_falg = true;
+                this.title = "土地承包/流转信息发布";
+                this.typeName="土地类型";
+                this.place="描述您承包或流转土地等级和要求及相关配套设施信息，有助于达成合作";
+                this.typePlace="请选择土地类型";
+                type = 1;
+
+            }else if(this.type_choose  == 12){
+                this.goods_style_arr =[
+                    {
+                        id:13,
+                        name:"出租"
+                    },
+                    {
+                        id:14,
+                        name:"销售"
+                    }
+                ]
+                this.goods_style_falg = true;
+                this.title = "农机具出租/销售信息发布";
+                this.typeName="农机具类型";
+                this.place="描述您出租或销售农机具品牌、参数及其他服务内容，有助于达成合作";
+                this.typePlace="请选择农机具类型";
+                type = 2;
+
+            }else if(this.type_choose  == 13){
+                this.title = "农副产品收购信息发布";
+                this.typeName="农副产品类型";
+                this.place="描述您收购产品详细名称、种类、质量及要求等内容，有助于达成合作";
+                this.typePlace="请选择农副产品类型";
+                type = 3;
+
+            }else if(this.type_choose  == 14){
+                this.title = "销售农资信息发布";
+                this.typeName="农资类型";
+                this.place="描述您销售农资的详细名称、种类、质量、参数及其他服务，有助于达成合作";
+                this.typePlace="请选择农资类型";
+                type = 4;
+
+            }else if(this.type_choose  == 15){
+                this.title = "订单回购信息发布";
+                this.typeName="订单回购类型";
+                this.place="详细描述您订单回购产品种类、质量及其他要求，有助于达成合作";
+                this.typePlace="请选择订单回购类型";
+                type = 3;
+
+            }else if(this.type_choose  == 16){
+
+
+            }
+            // 土地类型
+            this.type(type)
+
+        },
+        methods:{
+              confirmSure(obj){
+                this.show = false;
+                this.$set(this.selId,"province",obj.province);
+                this.$set(this.selId,"city",obj.city);
+                this.$set(this.selId,"area",obj.area);
+                this.selCity =obj.address
+            },
+            //发布信息
+            sure(){
+                var _this = this;
+                //交易类型
+                if(this.goods_style_falg){
+                    //    selDeal.name
+                    if(this.selDeal.id == ""){
+                        Dialog({ message: '请选择交易类型',confirmButtonColor:"#1bb339" });
+                        return false;
+                    }
+                }
+                if(this.selType.id && this.selType.id !=""){
+
+
+                }else{
+                    Dialog({ message: '请选择'+this.typeName,confirmButtonColor:"#1bb339" });
+                    return false;
+                }
+                if(this.goods_name == ""){
+                    Dialog({ message: '请输入标题',confirmButtonColor:"#1bb339" });
+                    return false;
+                }
+                if(this.num == ""){
+                    Dialog({ message: '请输入数量',confirmButtonColor:"#1bb339" });
+                    return false;
+                }
+
+
+                if(this.phone == ""){
+                    // $.toast("", "forbidden");
+                    Dialog({ message: '请输入手机号',confirmButtonColor:"#1bb339" });
+                    return false;
+                }else{
+                    if(!(/^1[3456789]\d{9}$/.test(this.phone))){
+                        Dialog({ message: '手机号码有误，请重填',confirmButtonColor:"#1bb339" });
+                        // $.toast("手机号码有误，请重填", "forbidden");
+                        return false;
+                    }
+                }
+                if(this.sureFalg){
+                    this.sureFalg = false;
+                }else{
+                    return false
+                }
+
+                this.ajax.post(this.mainUrl+ "goods/Goods/releaseUpdate", this.qs.stringify({
+                        goods_name:this.goods_name,
+                        goods_style_xi:this.selDeal.id,
+                        transa_id:this.selType.id,
+                        image:this.image.join(","),
+                        unit:this.selUnit.id,
+                        num:this.num,
+                        price:this.price,
+                        phone:this.phone,
+                        province_id:this.address.province_id,
+                        city_id:this.address.city_id,
+                        area_id:this.address.area_id,
+                        addr:this.address.addr,
+                        longitude:this.address.longitude,
+                        latitude:this.address.longitude,
+                        description:this.description,
+                        release_style:this.goods_style,
+                        goods_style:this.type_choose,
+                        user_id:this.userId,
+                        creat_time:this.creat_time,
+                        sex:"",
+                        age:"",
+                        goods_id:this.goods_id
+                    }),
+                    {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                ).then((res)=>{
+                    // console.log(response.data)
+                    _this.sureFalg = true;
+                    if(res.data.code == 0){
+                        // alert("1")
+
+                        Toast.success('发布成功');
+                        setTimeout(function(){
+                            _this.$router.back()
+                            },1000
+
+                        )
+
+
+                    }else{
+                        Dialog({ message: res.data.msg,confirmButtonColor:"#1bb339" });
+                    }
+
+
+                }).catch(()=>{
+                    // console.log(response)
+                })
+            },
+            //上传图片
+            zzUrl(e){
+                var reader = new FileReader();
+                var _this = this;
+                reader.onload = (function () {
+                    return function () {
+                        // console.info(this.result); //这个就是base64的数据了
+                        _this.upLoad(this.result);
+                        // var sss=$("#showImage");
+                        // $("#showImage")[0].src=this.result;
+                    };
+                })(e.target.files[0]);
+                reader.readAsDataURL(e.target.files[0]);
+            },
+            upLoad(imgUrl){
+                var _this = this;
+                this.ajax.post(this.mainUrl+ "upload/Upload/base64_image_upload",
+                    this.qs.stringify({
+                        base64:imgUrl
+                    }),
+                    {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                ).then((result)=>{
+
+                    if(result.data.code == 0) {
+                        _this.$set(_this.image,_this.image.length, result.data.data.imageSrc)
+
+
+                    }else{
+                        Dialog({ message: result.data.msg,confirmButtonColor:"#1bb339" });
+                    }
+
+                }).catch(()=>{
+                    // console.log(response)
+                })
+
+            },
+            //弹框取消
+            dismiss(){
+                this.choose_flag = false;
+                this.unit_flag = false;
+                this.deal_flag=false
+            },
+            goBack(){
+                this.$router.go(-1)
+            },
+            //单位
+            unit(){
+                var _this = this;
+                this.ajax.post(this.mainUrl+ "goods/Goods/goodsUnit", {
+                    },
+                    {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                ).then((res)=>{
+                    // console.log(response.data)
+                    if(res.data.code == 0){
+                        // alert("1")
+                        _this.unitType01 = res.data.data
+                        _this.$set(_this.selUnit,"name",res.data.data[0].unit_name);
+                        _this.$set(_this.selUnit,"id",res.data.data[0].unit_id)
+
+
+
+                    }else{
+                        Dialog({ message: res.data.msg,confirmButtonColor:"#1bb339" });
+                    }
+
+
+                }).catch(()=>{
+                    // console.log(response)
+                })
+            },
+            //类型
+            type(num){
+                var _this = this;
+                this.ajax.post(this.mainUrl+ "goods/Goods/goodsType", this.qs.stringify({
+                        type:num
+                    }),
+                    {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                ).then((res)=>{
+                    // console.log(response.data)
+                    if(res.data.code == 0){
+                        // alert("1")lse{
+                        _this.goodsType01 = res.data.data
+
+
+
+                    }else{
+                        Dialog({ message: res.data.msg,confirmButtonColor:"#1bb339" });
+                    }
+
+
+                }).catch(()=>{
+                    // console.log(response)
+                })
+            },
+            ////去选择交易类型
+            todeal(){
+                this.deal_flag = true
+            },
+            //去选择土地
+            toType(){
+                this.choose_flag = true
+            },
+            //去选择单位
+            toUnit(){
+                this.unit_flag = true
+            },
+            //已经选择
+            chotype(obj){
+                this.selType = obj;
+                console.log(JSON.stringify(obj));
+                this.choose_flag = false
+            },
+            //    已经选择 单位
+            chouni(obj){
+                console.log("dkk")
+                this.selUnit = obj;
+                console.log(JSON.stringify(obj));
+                this.unit_flag = false
+            },
+            chodeal(obj){
+                this.selDeal = obj;
+                console.log(JSON.stringify(obj));
+                this.deal_flag = false
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .btn{
+        padding: 0.2rem;
+        background: #70ba2f;
+        color: #ffffff;
+        position: absolute;
+        right: 0.24rem;
+        border-radius: 0.2rem;
+    }
+    .imgUli{
+        overflow: hidden;
+    }
+    .imgLi{
+        width: 2.34rem;
+        height: 2.34rem;
+        margin-right: 0.2rem;
+        float: left;
+    }
+    .imgLi img{
+        width: 100%;
+        height: 100%;
+    }
+    .addImg{
+        position: relative;
+        border: 1px dashed #d8d8d8;
+        width: 2.34rem;
+        float: left;
+        height: 2.34rem;
+        text-align: center;
+    }
+    .addImg span{
+        font-size: 1rem;
+        color: #d8d8d8;
+        margin-top: 0.2rem;
+        line-height: 1.6rem;
+    }
+    .addImg p{
+        color: #d8d8d8;
+    }
+    .addImg input{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        opacity: 0;
+    }
+    body{
+        background: #f4f4f4;
+    }
+    .header{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        height: 1.17rem;
+        padding: 0 0.53rem;
+        background: #f5f5f5;
+        font-size: 0.4rem;
+    }
+    .goBack{
+        height: 0.53rem;
+        line-height: 0.53rem;
+        position: absolute;
+        top: 0.32rem;
+        left: 0.53rem;
+    }
+    .goBack span{
+        display: block;
+        color: #999999;
+        font-size: 0.53rem;
+    }
+    .header p{
+        width: 100%;
+        color: #000;
+        font-size: 0.4rem;
+        text-align: center;
+    }
+    .container{
+        padding-top: 1.17rem;
+    }
+    .mainFlex{
+        height: 1.28rem;
+        display: flex;
+        align-items: center;
+        padding: 0 0.53rem;
+        font-size: 0.37rem;
+        margin-bottom: 0.26rem;
+        background: #ffffff;
+        border-top: 1px solid #f3f3f3;
+    }
+    .main{
+        padding: 0 0.53rem;
+        font-size: 0.37rem;
+        margin-bottom: 0.26rem;
+        background: #ffffff;
+        border-top: 1px solid #f3f3f3;
+        padding-bottom: 0.26rem;
+    }
+    .main>p{
+        line-height: 1rem;
+    }
+    .mainFlex .title{
+        flex: 1;
+    }
+    .mainFlex input{
+        height: 1.28rem;
+        line-height: 1.28rem;
+        border: none;
+        text-align: right;
+        width: 50vw;
+    }
+    textarea{
+        resize:none;
+        border: none;
+        width: 100%;
+    }
+.leftIcon{
+    position:absolute;
+    left:0.2rem;
+    color:red;
+    }
+</style>
