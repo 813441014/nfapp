@@ -203,7 +203,7 @@
                         time_type:this.selDate.index,
                         start_money:this.min_price,
                         end_money:this.max_price,
-                        // user_id:this.userId
+                        userId:this.userId
                     }),
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
                 ).then((res)=>{

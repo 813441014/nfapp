@@ -6,10 +6,10 @@
             </div>
             <p>详情</p>
             <div class="rightIcon">
-                <p class="grayColor">
+                <p class="grayColor" v-if="initData.assist_type == 2"  @click="collect(1)">
                     <span class="iconfont icon-xing1"></span>
                 </p>
-                <p class="greenColor">
+                <p class="greenColor" v-else  @click="collect(2)">
                     <span class="iconfont icon-xing"></span>
                 </p>
 
@@ -100,6 +100,27 @@
         methods:{
             goBack(){
                 this.$router.back()
+            },
+            collect(index){
+                var _this = this;
+                this.ajax.post(this.mainUrl+ "goods/Goods/collect",
+                    this.qs.stringify({
+                        user_id:this.userId,
+                        data_id:this.initData.goods_id,
+                        status:index
+                    }),
+                    {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                ).then((res)=>{
+                    // console.log(response.data)
+                    // this.flag_switch = 1;
+                    // this.countDown(60);
+                    _this.$set(this.initData,"assist_type",index)
+
+
+
+                }).catch(()=>{
+                    // console.log(response)
+                })
             }
         }
     }

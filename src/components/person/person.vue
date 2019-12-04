@@ -29,7 +29,7 @@
             <p>我的发布</p>
             <span class="iconfont icon-xiayibu"></span>
         </div>
-        <div class="uli">
+        <div class="uli" @click="my_collect()">
             <span class="iconfont icon-xing1"></span>
             <p>我的收藏</p>
             <span class="iconfont icon-xiayibu"></span>
@@ -100,6 +100,11 @@
             this.$router.replace({
             path:"/login"
             })
+            },
+            my_collect(){
+                this.$router.push({
+                    path:"/collect"
+                })
             }
         }
     }

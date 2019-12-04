@@ -16,10 +16,10 @@
             <div class="mainFlex">
                 <p>证件类型</p>
                 <div class="radioFlex" id="radio_main">
-                    <div class="" data-index="0" :class="selIndex==0?'radio_active':''" @click="selRedio(0)">
+                    <div class="" data-index="0" :class="selIndex==0?'radio_active':''" @click="selRedio(1)">
                         <p>身份证</p>
                     </div>
-                    <div data-index="1" :class="selIndex==1?'radio_active':''" @click="selRedio(1)">
+                    <div data-index="1" :class="selIndex==1?'radio_active':''" @click="selRedio(2)">
                         <p>营业执照</p>
                     </div>
                 </div>
@@ -648,7 +648,7 @@
                     return false;
                 }
 
-                if(this.selIndex == 0){
+                if(this.selIndex == 1){
                     if(this.cardNum == ""){
                         // $.toast("请输入证件号码", "forbidden");
                         Dialog({ message: '请输入证件号码',confirmButtonColor:"#1bb339" });

@@ -5,11 +5,11 @@
                 <span class="iconfont icon-fanhui1"></span>
             </div>
 
-            <div class="rightIcon">
-                <p class="grayColor">
+            <div class="rightIcon" >
+                <p class="grayColor" v-if="type == 2" @click="zan(1)">
                     <span class="iconfont icon-dianzan"></span>
                 </p>
-                <p class="greenColor">
+                <p class="greenColor" v-else @click="zan(2)">
                     <span class="iconfont icon-dianzan"></span>
                 </p>
 
@@ -42,11 +42,15 @@
                 title: "",
                 browse: "",
                 awesome: "",
-                dataTime: ""
+                dataTime: "",
+                userId:"",
+                type:2
             }
         },
         created() {
-            this.init()
+            this.userId = localStorage.getItem("userId");
+            this.type = this.$route.query.type;
+            this.init();
         },
         methods:{
             //初始化数据
@@ -65,13 +69,36 @@
                         _this.browse = result.data.data.browse;
                         _this.awesome = result.data.data.awesome;
                         _this.dataTime = formatTime(result.data.data.add_time);
+                        _this.id = result.data.data.article_id;
 
                     }
                 })
                 },
                 goBack(){
                    this.$router.go(-1)
-                }
+                },
+               zan(index){
+                   var _this = this;
+                   this.ajax.post(this.mainUrl+ "home/Home/assist",
+                       this.qs.stringify({
+                           user_id:this.userId,
+                           data_id:this.id,
+                           status:index
+                       }),
+                       {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                   ).then((res)=>{
+                       // console.log(response.data)
+                       // this.flag_switch = 1;
+                       // this.countDown(60);
+                       _this.type = index;
+                       _this.init()
+
+
+
+                   }).catch(()=>{
+                       // console.log(response)
+                   })
+               }
 
         }
     }
@@ -111,26 +138,26 @@
     .grayColor{
         /*border: 1px dashed  #3699ff;*/
         /*background:  #dcf8ff;*/
-        width:0.53rem;
-        height: 0.53rem;
-        line-height: 0.53rem;
-        text-align: center;
-        margin-right: 0.24rem;
+        /*width:0.53rem;*/
+        /*height: 0.53rem;*/
+        /*line-height: 0.53rem;*/
+        /*text-align: center;*/
+        /*margin-right: 0.24rem;*/
     }
     .grayColor span{
-        display: block;
+        /*display: block;*/
         color: #a0a0a0;
     }
     .rightIcon .greenColor{
         /*border: 1px dashed  #3699ff;*/
         /*background:  #dcf8ff;*/
-        width:0.53rem;
-        height: 0.53rem;
-        line-height: 0.53rem;
-        text-align: center;
+        /*width:0.53rem;*/
+        /*height: 0.53rem;*/
+        /*line-height: 0.53rem;*/
+        /*text-align: center;*/
     }
     .rightIcon .greenColor span{
-        display: block;
+        /*display: block;*/
         color: #1bb339;
     }
     .content{

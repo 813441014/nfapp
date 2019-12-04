@@ -53,8 +53,16 @@
         data(){
             return{
 
-                selIndex:2
+                selIndex:2,
+                register_flag:false
             }
+        },
+        created(){
+
+            if(this.$route.query){
+                this.register_flag = this.$route.query.flag
+            }
+
         },
         methods:{
 
@@ -66,12 +74,22 @@
                 this.selIndex = index;
                 //1 商家 2 农户
                 localStorage.setItem("type",index);
-                this.$router.push({
-                    path:"/mainroute/index",
-                    query:{
-                        type:index
-                    }
-                })
+                if(this.register_flag){
+                    this.$router.push({
+                        path:"/register_news",
+                        query:{
+                            type:index
+                        }
+                    })
+                }else{
+                    this.$router.push({
+                        path:"/mainroute",
+                        query:{
+                            type:index
+                        }
+                    })
+                }
+
             }
         }
     }

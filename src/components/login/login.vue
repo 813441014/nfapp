@@ -240,9 +240,13 @@
                         localStorage.setItem("city_id",result.data.data.city_id);
                         localStorage.setItem("area_id",result.data.data.area_id);
                         localStorage.setItem("type",result.data.data.user_type);
-                           
 
-                        _this.$router.replace("/mainroute/index")
+
+                             _this.$router.replace("/mainroute/index")
+
+
+
+
                     }else{
                         Dialog({ message: result.data.msg,confirmButtonColor:"#1bb339" });
                     }
@@ -254,7 +258,19 @@
             },
         //    注册
             register(){
-                this.$router.push("/register_news")
+                if(localStorage.getItem("type")){
+                    this.$router.push("/register_news")
+                }else{
+
+                    this.$router.push({
+                        path:"/register",
+                        query:{
+                            flag:true
+                        }
+                    })
+
+                }
+
             },
             toUrl(){
                 var type = localStorage.getItem("type");

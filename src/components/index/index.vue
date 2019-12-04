@@ -41,7 +41,7 @@
         </div>
         <div class="uList" >
             <div class="list" v-if="type == 1" >
-                <div class="items" v-for="(items,index) in init_data" :key="index" @click="details(items.id)">
+                <div class="items" v-for="(items,index) in init_data" :key="index" @click="details(items.id,items.assist_type)">
                     <img :src="items.img" alt="">
                     <div>
                         <p class="title">{{items.name}}</p>
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="list" v-else >
-                <div class="items"  v-for="(items,index) in init_data2" :key="index" @click="details(items.id)">
+                <div class="items"  v-for="(items,index) in init_data2" :key="index" @click="details(items.id,items.assist_type)">
                     <img :src="items.img" alt="">
                     <div>
                         <p class="title">{{items.name}}</p>
@@ -75,7 +75,7 @@
                            <span @click="moreNotice()">更多>></span>
                        </div>
                        <div class="content">
-                           <div class="notice_list" v-for="(items ,index) in noteList" :key="index" :class="items.display == '1'?'list02':'list03'" @click="toDetails(items.article_id)">
+                           <div class="notice_list" v-for="(items ,index) in noteList" :key="index" :class="items.display == '1'?'list02':'list03'" @click="toDetails(items.article_id,items.assist_type)">
 
                                <img :src="items.file_url" alt="" v-if="items.display == '1'" :onerror="defaultImg">
                                <div class="boxItems">
@@ -112,7 +112,7 @@
                            <span @click="moreServe()">更多>></span>
                        </div>
                        <div class="recommend_list">
-                           <div class="recommend_box recommend_box01" v-for="(items,index) in serveList" :key="index" :class="items.display == '1'?'recommend_box02':'recommend_box01'" :onerror="defaultImg" @click="toDetails(items.article_id)">
+                           <div class="recommend_box recommend_box01" v-for="(items,index) in serveList" :key="index" :class="items.display == '1'?'recommend_box02':'recommend_box01'" :onerror="defaultImg" @click="toDetails(items.article_id,items.assist_type)">
                                <p class="redbtn" v-if="items.display != '1'">优选</p>
                                <img src="image/banner.png" alt="" v-else :onerror="defaultImg">
                                <div class="recommend_items">
@@ -236,10 +236,12 @@
                   address:""
 
               },
-              type:localStorage.getItem("type")
+              type:localStorage.getItem("type"),
+              userId:""
           }
         },
         created(){
+            this.userId = localStorage.getItem("userId");
             this.userName= localStorage.getItem("userName")
            this.initData()
         },
@@ -368,28 +370,31 @@
                 });
 
             },
-            details(id){
+            details(id,num){
                 this.$router.push({
                     path:"/search",
                     query:{
-                        id:id
+                        id:id,
+                        type:num
                     }
                 })
             },
-            toDetails(id){
+            toDetails(id,num){
                this.$router.push({
                    path:"/index_details",
                    query:{
-                       id:id
+                       id:id,
+                       type:num
+
                    }
                })
             },
             initData(){
                 var _this =this;
 
-                this.ajax.post(this.mainUrl+ "home/Home/homePage",{
-
-                    },
+                this.ajax.post(this.mainUrl+ "home/Home/homePage",this.qs.stringify({
+                        user_id:this.userId,
+                    }),
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
                 ).then((res)=>{
                     // console.log(response.data)

@@ -14,6 +14,10 @@ export default new Router({
             component:resolve => require(['./components/main/main.vue'], resolve),
             children:[
                 {
+                    path:"/",
+                    redirect:"index"
+                },
+                {
                     path:"index",
                     name:"index",
                     component:resolve => require(['./components/index/index.vue'], resolve)
@@ -122,6 +126,14 @@ export default new Router({
             path: "/service",
             name: "service",
             component: resolve => require(['./components/service/service.vue'], resolve),
+            meta: {
+                requireAuth: true
+            }
+        },
+        {
+            path: "/collect",
+            name: "collect",
+            component: resolve => require(['./components/collect/collect.vue'], resolve),
             meta: {
                 requireAuth: true
             }

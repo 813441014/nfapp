@@ -6,10 +6,10 @@
             </div>
             <p>详情</p>
             <div class="rightIcon">
-                <p class="grayColor">
+                <p class="grayColor" v-if="initData.assist_type == 2"  @click="collect(1)">
                     <span class="iconfont icon-xing1"></span>
                 </p>
-                <p class="greenColor">
+                <p class="greenColor" v-else  @click="collect(2)">
                     <span class="iconfont icon-xing"></span>
                 </p>
 
@@ -77,11 +77,13 @@ import Swiper from 'swiper';
 
 
                 },
-                banner:[]
+                banner:[],
+                userId:""
             }
         },
         created(){
             this.initData = this.$route.query;
+            this.userId = localStorage.getItem("userId");
             var banner =  this.initData.image.toString();
             this.banner = banner.split(",");
          console.log(this.banner)
@@ -98,6 +100,27 @@ import Swiper from 'swiper';
         methods:{
             goBack(){
                 this.$router.back()
+            },
+            collect(index){
+                var _this = this;
+                this.ajax.post(this.mainUrl+ "goods/Goods/collect",
+                    this.qs.stringify({
+                        user_id:this.userId,
+                        data_id:this.initData.goods_id,
+                        status:index
+                    }),
+                    {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                ).then((res)=>{
+                    // console.log(response.data)
+                    // this.flag_switch = 1;
+                    // this.countDown(60);
+                    _this.$set(this.initData,"assist_type",index)
+
+
+
+                }).catch(()=>{
+                    // console.log(response)
+                })
             }
         }
     }
@@ -105,10 +128,10 @@ import Swiper from 'swiper';
 
 <style scoped>
     .rightIcon {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex: 1;
+        /*display: flex;*/
+        /*align-items: center;*/
+        /*justify-content: flex-end;*/
+        /*flex: 1;*/
 
     }
     .grayColor{
@@ -118,22 +141,21 @@ import Swiper from 'swiper';
         height: 0.53rem;
         line-height: 0.53rem;
         text-align: center;
-        margin-right: 0.24rem;
     }
     .grayColor span{
-        display: block;
+        /*display: block;*/
         color: #a0a0a0;
     }
     .rightIcon .greenColor{
         /*border: 1px dashed  #3699ff;*/
         /*background:  #dcf8ff;*/
-        width:0.53rem;
-        height: 0.53rem;
-        line-height: 0.53rem;
-        text-align: center;
+        /*width:0.53rem;*/
+        /*height: 0.53rem;*/
+        /*line-height: 0.53rem;*/
+        /*text-align: center;*/
     }
     .rightIcon .greenColor span{
-        display: block;
+        /*display: block;*/
         color: #1bb339;
     }
 

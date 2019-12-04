@@ -107,7 +107,7 @@
     import filterCompontent from "../../compomtent/filter/filter";
     import filterPrice from "../../compomtent/filter_price/filter_price";
     import { Dialog } from 'vant';
-    import {formatTime} from "../../until/until";
+    import {formatTime01} from "../../until/until";
     import noData from "../../compomtent/no_data/no_data"
     export default {
         name: "my_publish",
