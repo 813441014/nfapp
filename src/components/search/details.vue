@@ -85,9 +85,12 @@ import Swiper from 'swiper';
             this.initData = this.$route.query;
             this.userId = localStorage.getItem("userId");
             var banner =  this.initData.image.toString();
-            this.banner = banner.split(",");
-         console.log(this.banner)
-         console.log(this.banner.split(","))
+            if(banner != ""){
+                this.banner = banner.split(",");
+            }else{
+                this.banner = []
+            }
+
         },
        mounted(){
          
@@ -219,7 +222,7 @@ import Swiper from 'swiper';
     }
 
     .details{
-        /*padding-top: 1.17rem;*/
+        padding-top: 1.17rem;
         padding-bottom: 1.26rem;
     }
     .header{

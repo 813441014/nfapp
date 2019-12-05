@@ -26,7 +26,7 @@
                     </p>
                     <div class="imgUrl">
                         <div class="overflow_div">
-                            <img v-for="(itemsImg,key) in items.image" :key="key" :src="itemsImg" alt="" >
+                            <img v-for="(itemsImg,key) in items.image" :key="key" :src="itemsImg" alt="" @click="prewurl(index,key)">
                         </div>
 
                     </div>
@@ -109,6 +109,7 @@
     import { Dialog } from 'vant';
     import {formatTime01} from "../../until/until";
     import noData from "../../compomtent/no_data/no_data"
+    import { ImagePreview } from 'vant';
     export default {
         name: "my_publish",
         components:{
@@ -255,9 +256,12 @@
                     if(res.data.code == 0){
                         // alert("1")
                         for(var i=0;i<res.data.data.length;i++){
-                            res.data.data[i].image =  res.data.data[i].image.split(",");
+                            if( res.data.data[i].image  != ''){
+                                res.data.data[i].image =  res.data.data[i].image.split(",");
+                            }
+
                             res.data.data[i].creatTime = formatTime01(res.data.data[i].creat_time);
-                            console.log( res.data.data[i].creatTime)
+                            console.log(  res.data.data[i].image)
                         }
 
                         _this.initData = res.data.data;
@@ -303,6 +307,13 @@
                 this.min_price = obj.min_price;
                 this.flag_filter = false
 
+            },
+            prewurl(key,index){
+                var image = this.initData[key].image;
+                ImagePreview({
+                    images: image,
+                    startPosition: index,
+                });
             }
         }
     }
@@ -392,11 +403,15 @@
         margin: 0.18rem 0;
     }
     .imgUrl img{
-        width: 2.32rem;
-        height: 2.32rem;
-        margin: 0 0.4rem;
+        width: 3rem;
+        height: 3rem;
+        margin: 0.09rem 0;
+        margin-right: 0.18rem;
         display: block;
         float: left;
+    }
+    .imgUrl img:nth-of-type(3n){
+        margin-right: 0rem;
     }
 
     .header{

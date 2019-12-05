@@ -240,6 +240,9 @@
                         localStorage.setItem("city_id",result.data.data.city_id);
                         localStorage.setItem("area_id",result.data.data.area_id);
                         localStorage.setItem("type",result.data.data.user_type);
+                        localStorage.setItem("head_pic",result.data.data.head_pic);
+                        localStorage.setItem("unreadCount",result.data.data.unreadCount);
+
 
 
                              _this.$router.replace("/mainroute/index")
@@ -415,12 +418,10 @@
         color: #1bb339;
     }
     .navBottom{
-        position: fixed;
-        bottom: 1rem;
-        left: 0;
-        right: 0;
+
         font-size: 0.34rem;
         line-height: 1rem;
+        margin-top: 3rem;
     }
     .navBottom p{
         text-align: center;

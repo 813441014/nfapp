@@ -33,7 +33,7 @@
             <div class="mainFlex addFiles" v-if="selIndex == 1">
                 <p>营业执照</p>
                 <div class="flexEnd">
-                    <input type="text" placeholder="请输入营业执照" id="photo_number" v-model="photo_number" @change="zzUrl($event)">
+                    <input type="text" placeholder="请输入营业执照" id="photo_number" v-model="photo_number" >
                 </div>
             </div>
             <div class="main imgtype" id="addCard" v-if="selIndex == 0">
@@ -61,7 +61,7 @@
                                     <div class="addImg" id="addZz">
                                         <span class="iconfont icon-add"></span>
                                         <p>添加图片</p>
-                                        <input type="file"  id="zzId" />
+                                        <input type="file"  id="zzId" @change="zzUrl($event)"/>
                                     </div>
 
                 </div>
@@ -927,6 +927,8 @@
         text-align: right;
         height: 1.46rem;
         line-height: 1.46rem;
+
+        width: 100%;
     }
     .toolbar, .toolbar .title{
         font-size: 0.34rem;

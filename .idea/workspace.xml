@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22c918bf-36be-4d1c-819c-f01957f84652" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/person/edit_pass.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/person/news.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/person/person_edit.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/notice/notice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notice/notice.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/person/person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/person/person.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/person/publish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/person/publish.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/publish/publish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publish/publish.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/register_news.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/register_news.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/register_pass.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/register_pass.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search/details.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/details.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search/details_person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/details_person.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search/search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/search.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +31,7 @@
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -29,13 +44,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/person" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\works\no_nf\src\components\person" />
       <recent name="D:\works\pre\nfApp" />
       <recent name="D:\works\pre\nfApp\css" />
       <recent name="D:\works\pre\nfApp\fonts" />
@@ -76,7 +92,17 @@
       <workItem from="1574472381573" duration="11582000" />
       <workItem from="1575254162908" duration="873000" />
       <workItem from="1575272926407" duration="834000" />
+      <workItem from="1575454735113" duration="312000" />
+      <workItem from="1575511967387" duration="14323000" />
     </task>
+    <task id="LOCAL-00001" summary="wenzixinxi">
+      <created>1575454986982</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575454986982</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,5 +120,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="wenzixinxi" />
+    <option name="LAST_COMMIT_MESSAGE" value="wenzixinxi" />
   </component>
 </project>

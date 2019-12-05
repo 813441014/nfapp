@@ -137,6 +137,30 @@ export default new Router({
             meta: {
                 requireAuth: true
             }
+        },
+        {
+            path: "/person_edit",
+            name: "person_edit",
+            component: resolve => require(['./components/person/person_edit.vue'], resolve),
+            meta: {
+                requireAuth: true
+            }
+        },
+        {
+            path: "/news",
+            name: "news",
+            component: resolve => require(['./components/person/news.vue'], resolve),
+            meta: {
+                requireAuth: true
+            }
+        },
+        {
+            path: "/edit_pass",
+            name: "edit_pass",
+            component: resolve => require(['./components/person/edit_pass.vue'], resolve),
+            meta: {
+                requireAuth: true
+            }
         }
     ]
 })

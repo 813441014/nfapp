@@ -12,14 +12,14 @@
                 <div class="iphone">
 {{phone}}                </div>
             </div>
-            <div class="headEdit">
+            <div class="headEdit" @click="edit()">
                 <p>编辑资料</p>
                 <span class="iconfont icon-xiayibu"></span>
             </div>
         </div>
     </div>
     <div class="personList">
-        <div class="uli">
+        <div class="uli" @click="edit()">
             <span class="iconfont icon-wode"></span>
             <p>个人信息</p>
             <span class="iconfont icon-xiayibu"></span>
@@ -34,9 +34,9 @@
             <p>我的收藏</p>
             <span class="iconfont icon-xiayibu"></span>
         </div>
-        <div class="uli">
+        <div class="uli" @click="toNews()">
             <span class="iconfont icon-tongzhi"></span>
-            <p>通知消息</p>
+            <p>通知消息 <span v-if="unread && unread != 0" class="redBtn">{{unread}}</span></p>
             <span class="iconfont icon-xiayibu"></span>
         </div>
         <div class="uli" @click="loginOut">
@@ -79,7 +79,8 @@
             return{
                 name:"",
                 phone:"",
-                integrity:80
+                integrity:80,
+                unread: localStorage.getItem("unreadCount")
             }
         },
         created(){
@@ -104,6 +105,18 @@
             my_collect(){
                 this.$router.push({
                     path:"/collect"
+                })
+            },
+            edit(){
+                this.$router.push({
+                    path:"/person_edit"
+                })
+            },
+            toNews(){
+                localStorage.setItem("unreadCount",0);
+                this.unread = 0;
+                this.$router.push({
+                    path:"/news"
                 })
             }
         }
@@ -299,6 +312,12 @@
     }
     .icon-tuichu {
         color: #b9b9b9;
+    }
+    .redBtn{
+        background: red;
+        color: #ffffff;
+        border-radius: 100%;
+        padding: 0.1rem 0.2rem;
     }
 
 </style>

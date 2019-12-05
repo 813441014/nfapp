@@ -41,7 +41,7 @@
                     </p>
                     <div class="imgUrl">
                         <div class="overflow_div">
-                            <img v-for="(itemsImg,key) in items.image" :key="key" :src="itemsImg" alt="" >
+                            <img v-for="(itemsImg,key) in items.image" :key="key" :src="itemsImg" alt="" @click.stop="prewurl(index,key)">
                         </div>
 
                     </div>
@@ -125,6 +125,7 @@
     import {formatTime01} from "../../until/until";
     import noData from "../../compomtent/no_data/no_data";
     import cityCompontents from '../../compomtent/city/city';
+    import { ImagePreview } from 'vant';
     export default {
         name: "search",
         components:{
@@ -165,6 +166,15 @@
             this.init()
         },
         methods:{
+            prewurl(key,index){
+                console.log(key)
+                console.log( this.initData[key]);
+                var image = this.initData[key].image;
+                ImagePreview({
+                    images: image,
+                    startPosition: index,
+                });
+            },
             dismissCity(){
               this.selCity ="全国",
               this.$set(this.selId,"province","");
@@ -211,7 +221,12 @@
                     if(res.data.code == 0){
                         // alert("1")
                         for(var i=0;i<res.data.data.length;i++){
-                            res.data.data[i].image =  res.data.data[i].image.split(",");
+                            if( res.data.data[i].image == ""){
+                                res.data.data[i].image =  [];
+                            }else{
+                                res.data.data[i].image =  res.data.data[i].image.split(",");
+                            }
+
                             res.data.data[i].creat_time = formatTime01(res.data.data[i].creat_time)
 
                         }
@@ -348,13 +363,16 @@
         margin: 0.18rem 0;
     }
     .imgUrl img{
-        width: 2.32rem;
-        height: 2.32rem;
-        margin: 0 0.4rem;
+        width: 3rem;
+        height: 3rem;
+        margin: 0.09rem 0;
+        margin-right: 0.18rem;
         display: block;
         float: left;
     }
-
+    .imgUrl img:nth-of-type(3n){
+        margin-right: 0;
+    }
     .header{
         position: fixed;
         left: 0;

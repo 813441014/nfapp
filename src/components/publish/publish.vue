@@ -117,6 +117,7 @@
     import { Toast } from 'vant';
     import { Dialog } from 'vant';
     import cityCompontents from '../../compomtent/city/city';
+
     export default {
         name: "publish",
         components:{

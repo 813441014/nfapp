@@ -154,12 +154,16 @@
         right: 0;
         background: #f5f5f5;
     }
+    .mainFlex div{
+        flex: 1;
+    }
     .mainFlex input{
         border: none;
         text-align: right;
         height: 1.46rem;
         line-height: 1.46rem;
         font-size: 0.34rem;
+        width: 100%;
     }
     .fixDiv{
         position: fixed;

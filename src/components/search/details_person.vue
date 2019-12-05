@@ -86,7 +86,12 @@
         created(){
             this.initData = this.$route.query;
             var banner =  this.initData.image.toString();
-            this.banner = banner.split(",");
+            if(banner != ""){
+                this.banner = banner.split(",");
+            }else{
+                this.banner = []
+            }
+
         },
         mounted(){
         
