@@ -1,8 +1,4 @@
 export function formatTime(timestamp){
-    console.log(timestamp);
-    console.log(new Date());
-    console.log(new Date(1573802849000))
-    console.log(parseInt(1573802849) * 1000)
     let date = new Date(parseInt(timestamp) * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
     console.log(date)
     let Y = date.getFullYear();
@@ -16,10 +12,6 @@ export function formatTime(timestamp){
 }
 
 export function formatTime01(timestamp){
-    console.log(timestamp);
-    console.log(new Date());
-    console.log(new Date(1573802849000))
-    console.log(parseInt(1573802849) * 1000)
     let date = new Date(parseInt(timestamp));//时间戳为10位需*1000，时间戳为13位的话不需乘1000
     console.log(date)
     let Y = date.getFullYear();
