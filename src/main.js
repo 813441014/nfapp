@@ -25,7 +25,9 @@ Vue.use(VueJsonp)
 import { Loading } from 'vant';
 
 Vue.use(Loading);
+import { Overlay } from 'vant';
 
+Vue.use(Overlay);
 router.beforeEach((to, from, next) => {
   if(to.meta.requireAuth) { // 判断该路由是否需要登录权限
 

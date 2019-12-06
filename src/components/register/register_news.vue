@@ -1,12 +1,12 @@
 <template>
-    <div >
+    <div ref="apply" id="apply">
         <div class="header">
             <div class="goBack" @click="goBack()">
                 <span class="iconfont icon-fanhui1"></span>
             </div>
             <p>注册信息</p>
         </div>
-        <div class="contentUli">
+        <div class="contentUli " id="contentUli" :style="{marginBottom:marginBottom}" >
             <div class="mainFlex">
                 <p>真实姓名</p>
                 <div class="flexEnd">
@@ -87,11 +87,11 @@
                     <input type="text"  placeholder="请输入手机号" id="phone" v-model="phone">
                 </div>
             </div>
-            <div class="mainFlex">
+            <div class="mainFlex"  id="codeNum" ref="codeNum">
                 <p>验证码</p>
                 <div class="flexEnd">
                     <div class="endInput">
-                        <input type="text"  placeholder="请输入验证码" id="codeNum" v-model="codeNum" onfocus="inputFocus()">
+                        <input type="text"  placeholder="请输入验证码" v-model="codeNum">
                     </div>
 
                     <button class="rightDiv" @click="getCode()" id="codeName">
@@ -111,6 +111,7 @@
             <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
 
 
+
 <!--        <van-popup  position="bottom"  :style="{ height: '60%' }">-->
 <!--            <div class="nowLocation">-->
 <!--                <p class="leftdiv">当前位置</p>-->
@@ -120,16 +121,19 @@
 <!--            </div>-->
 <!--            <van-picker :columns="columns" @change="onChange" />-->
 <!--        </van-popup>-->
+        <phone :title="phone"></phone>
     </div>
 </template>
 
 <script>
     import { Dialog } from 'vant';
     import cityCompontents from '../../compomtent/city/city';
+    import phone from '../../compomtent/input/input';
     export default {
         name: "register_news",
         components:{
-            cityCompontents
+            cityCompontents,
+            phone
         },
         data(){
             return {
@@ -187,17 +191,56 @@
                 selId:{
 
                 },
-                address:""
+                address:"",
+                className:"",
+                topNum:0,
+                clientHeightStart:"",
+                marginBottom:0
 
             }
         },
         created(){
           // this.city();
 
+
         },
         mounted(){
+            // document.getElementById("").scrollIntoView();
+            // this.$refs.codeNum.scrollIntoView();
+            // document.getElementById("codeNum").scrollTop=300;
+            // this.$nextTick(() => {
+            //
+            //      // this.$refs.codeNum.scrollTop = 300;
+            // });
+
+            // document.querySelector("#codeNum").scrollIntoView(true);
+            // document.querySelector("#codeNum").scrollIntoView(true);
+            // console.log(document.querySelector("#codeNum").scrollIntoView());
            console.log("http://api.map.baidu.com/location/ip?ak=QM4toBaah8yEvGTKoTd7mHa06vBjGrSw");
            this.getLocation()
+            var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+            this.clientHeightStart = clientHeight;
+            var _this = this;
+            this.className = true;
+
+            // window.onresize = function() {
+            //     var nowClientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+            //     // alert(clientHeight);
+            //     // alert(nowClientHeight);
+            //     // alert(clientHeight - nowClientHeight);
+            //     if (clientHeight - nowClientHeight > 60 ) {//因为ios有自带的底部高度
+            //         //键盘弹出的事件处理
+            //         // document.getElementById("apply").classList.add("focusState");
+            //         // _this.topNum = (clientHeight - nowClientHeight) ;
+            //         _this.topNum = (clientHeight - nowClientHeight) + "px";
+            //     }
+            //     else {
+            //         //键盘收起的事件处理
+            //         // document.getElementById("apply").classList.remove("focusState");
+            //         _this.topNum = 0 + "px";
+            //         _this.className = "";
+            //     }
+            // };
 
             // var map = new window.BMap.Map("allmap");
             // console.log(map)
@@ -294,12 +337,8 @@
                 var selIndex = picker.getIndexes();
                 this.selVal = selIndex;
                 // var selId = selIndex.spilt(",");
-                console.log(selIndex[1]);
-                console.log(this.city_list);
                 this.id01 = this.province_list[selIndex[0]].region_id;
                 var id02 = this.city_list[this.id01][selIndex[1]].region_id;
-                console.log(this.city_list);
-                console.log(this.county_list[id02][selIndex[2]].region_id)
                 this.id02 = id02;
                 this.id03 = this.county_list[id02][selIndex[2]].region_id;
                 this.index01 = selIndex[0];
@@ -313,9 +352,50 @@
 
             },
             inputFocus(){
-                setTimeout(function(){
-                    window.scrollTo(0,document.body.clientHeight);
-                }, 500);
+                // setTimeout(function(){
+                //     console.log(document.body.clientHeight);
+                //     // alert(document.body.clientHeight);
+                //     window.scrollTo(0,document.body.clientHeight);
+                // }, 500);
+                console.log("zheli ");
+                var _this =this;
+                _this.marginBottom = 2000 + "px";
+                this.$nextTick(() => {
+                   // console.log(document.getElementById("codeNum").scrollTop)
+
+                    document.documentElement.scrollTop= 300;
+
+                });
+                console.log(document.documentElement.clientHeight)
+                var nowClientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+                // alert(clientHeight);
+                // alert(nowClientHeight);
+                // alert(clientHeight - nowClientHeight);
+                if (this.clientHeightStart - nowClientHeight > 60 ) {//因为ios有自带的底部高度
+
+                    this.$nextTick(() => {
+
+                        document.documentElement.scrollTop= (this.clientHeightStart - nowClientHeight);
+                    });
+                }
+                else {
+                    this.$nextTick(() => {
+
+                        // document.documentElement.scrollTop= (this.clientHeightStart - nowClientHeight);
+                    });
+                    // this.$nextTick(() => {
+                    //
+                    //     document.documentElement.scrollTop= 0;
+                    // });
+                }
+            },
+            inputBlur(){
+                console.log("4")
+                var _this = this;
+                this.$nextTick(() => {
+
+                    _this.marginBottom = 0 + "px";
+                });
             },
             //获取城市
             cityN(){
@@ -729,7 +809,11 @@
 </script>
 
 <style scoped>
+    .topClass{
+        position: absolute;
+        width: 100%;
 
+    }
     .header{
         position: fixed;
         top: 0;
@@ -764,7 +848,8 @@
     }
     .contentUli{
         padding-top: 1.17rem;
-        padding-bottom: 1.3rem;
+        padding-bottom: 1.33rem;
+        margin-bottom: 0;
     }
     .name{
         color: #818181;

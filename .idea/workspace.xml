@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22c918bf-36be-4d1c-819c-f01957f84652" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/compomtent/input/input.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/person/publish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/person/publish.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/register/register_news.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/register_news.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/search/details.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/details.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/search/search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/search.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../newApp" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -84,7 +83,8 @@
       <workItem from="1575272926407" duration="834000" />
       <workItem from="1575454735113" duration="312000" />
       <workItem from="1575511967387" duration="17620000" />
-      <workItem from="1575598923119" duration="2784000" />
+      <workItem from="1575598923119" duration="3465000" />
+      <workItem from="1575604356827" duration="14729000" />
     </task>
     <task id="LOCAL-00001" summary="wenzixinxi">
       <created>1575454986982</created>
@@ -114,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575540434269</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="wenzixinxi">
+      <created>1575602271971</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575602271972</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
