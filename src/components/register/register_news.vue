@@ -91,7 +91,7 @@
                 <p>验证码</p>
                 <div class="flexEnd">
                     <div class="endInput">
-                        <input type="text"  placeholder="请输入验证码" id="codeNum" v-model="codeNum">
+                        <input type="text"  placeholder="请输入验证码" id="codeNum" v-model="codeNum" onfocus="inputFocus()">
                     </div>
 
                     <button class="rightDiv" @click="getCode()" id="codeName">
@@ -311,6 +311,11 @@
 
 
 
+            },
+            inputFocus(){
+                setTimeout(function(){
+                    window.scrollTo(0,document.body.clientHeight);
+                }, 500);
             },
             //获取城市
             cityN(){

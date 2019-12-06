@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="details">
-                        <p>{{items.addr}}</p>
+                        <p>{{items.province_name}}{{items.city_name}}{{items.area_name}}</p>
                         <p>{{items.creat_time}} 发布</p>
                     </div>
                 </div>

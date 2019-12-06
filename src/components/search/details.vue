@@ -53,7 +53,7 @@
                 </div>
                 <div class="mainFlex">
                     <p>位置</p>
-                    <p>内蒙古自治区</p>
+                    <p>{{initData.province_name}}{{initData.city_name}}{{initData.area_name}}</p>
                 </div>
             </div>
         </div>
