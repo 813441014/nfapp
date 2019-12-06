@@ -16,10 +16,10 @@
             <div class="mainFlex">
                 <p>证件类型</p>
                 <div class="radioFlex" id="radio_main">
-                    <div class="" data-index="0" :class="selIndex==0?'radio_active':''" @click="selRedio(1)">
+                    <div class="" data-index="1" :class="selIndex==1?'radio_active':''" @click="selRedio(1)">
                         <p>身份证</p>
                     </div>
-                    <div data-index="1" :class="selIndex==1?'radio_active':''" @click="selRedio(2)">
+                    <div data-index="2" :class="selIndex==2?'radio_active':''" @click="selRedio(2)">
                         <p>营业执照</p>
                     </div>
                 </div>
