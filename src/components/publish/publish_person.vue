@@ -89,6 +89,10 @@
         </div>
         <sexComponent v-if="flag" @chotype="chooseSex()" @dismiss="dismiss"></sexComponent>
         <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+        
+        
+        
+         <inp :title="address"  v-if="addressFlag" @dismiss="dismiss" @sureValue="sureValueaddr"></inp>
     </div>
 </template>
 
@@ -97,11 +101,13 @@
     import { Toast } from 'vant';
     import { Dialog } from 'vant';
      import cityCompontents from '../../compomtent/city/city';
+     import inp from '../../compomtent/inp/inp';
     export default {
         name: "publish_person",
         components:{
             sexComponent,
-            cityCompontents
+            cityCompontents,
+            inp
         },
         data(){
             return {

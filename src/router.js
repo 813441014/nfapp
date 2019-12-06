@@ -130,14 +130,14 @@ export default new Router({
                 requireAuth: true
             }
         },
-        {
-            path: "/collect",
-            name: "collect",
-            component: resolve => require(['./components/collect/collect.vue'], resolve),
-            meta: {
-                requireAuth: true
-            }
-        },
+//      {
+//          path: "/collect",
+//          name: "collect",
+//          component: resolve => require(['./components/collect/collect.vue'], resolve),
+//          meta: {
+//              requireAuth: true
+//          }
+//      },
         {
             path: "/person_edit",
             name: "person_edit",
