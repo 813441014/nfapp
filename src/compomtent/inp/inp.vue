@@ -3,11 +3,11 @@
         <van-overlay :show="show" @click="show = false">
             <div class="wrapper" @click.stop>
                <div class="inp_div">
-                   <input type="text" placeholder="请输入...">
+                   <input type="text" placeholder="请输入..." v-model="val" />
                </div>
                 <div class="mainFlex">
-                    <p>取消</p>
-                    <p>确定</p>
+                    <p @click="dismiss">取消</p>
+                    <p @click="sure">确定</p>
                 </div>
             </div>
         </van-overlay>
@@ -22,8 +22,25 @@
         props:["title"],
         data(){
             return{
-                show:true
+                show:true,
+                val:this.title
             }
+        },
+        watch:{
+        	title(oldValue,newValue){
+        		this.val = oldValue
+        	}
+        },
+        methods:{
+        	sure(){
+        		console.log(122)
+        		this.$emit("sureValue",this.val)
+        	},
+        	dismiss(){
+        		console.log(122)
+        		this.$emit("dismiss")
+        	}
+        	
         }
     }
 </script>

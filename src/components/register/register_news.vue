@@ -16,10 +16,10 @@
             <div class="mainFlex">
                 <p>证件类型</p>
                 <div class="radioFlex" id="radio_main">
-                    <div class="" data-index="0" :class="selIndex==0?'radio_active':''" @click="selRedio(1)">
+                    <div class="" data-index="1" :class="selIndex==1?'radio_active':''" @click="selRedio(1)">
                         <p>身份证</p>
                     </div>
-                    <div data-index="1" :class="selIndex==1?'radio_active':''" @click="selRedio(2)">
+                    <div data-index="2" :class="selIndex==2?'radio_active':''" @click="selRedio(2)">
                         <p>营业执照</p>
                     </div>
                 </div>
@@ -78,20 +78,20 @@
                 <p>详细地址</p>
                 <div class="flexEnd">
                     <!--                <input type="text" id='city-picker' value="浙江 杭州 拱墅区" />-->
-                    <input type="text"  placeholder="请输入详细地址" v-model="address">
+                    <input type="text"  placeholder="请输入详细地址" v-model="address" readonly="readonly" @click="addressFlag = true">
                 </div>
             </div>
             <div class="mainFlex matginTop">
                 <p>手机号</p>
                 <div class="flexEnd">
-                    <input type="text"  placeholder="请输入手机号" id="phone" v-model="phone">
+                    <input type="text"  placeholder="请输入手机号" id="phone" v-model="phone" readonly="readonly" @click="phoneFlag = true">
                 </div>
             </div>
             <div class="mainFlex"  id="codeNum" ref="codeNum">
                 <p>验证码</p>
                 <div class="flexEnd">
                     <div class="endInput">
-                        <input type="text"  placeholder="请输入验证码" v-model="codeNum">
+                        <input type="text"  placeholder="请输入验证码" v-model="codeNum" readonly="readonly" @click="codeNumFlag = true">
                     </div>
 
                     <button class="rightDiv" @click="getCode()" id="codeName">
@@ -121,19 +121,21 @@
 <!--            </div>-->
 <!--            <van-picker :columns="columns" @change="onChange" />-->
 <!--        </van-popup>-->
-        <phone :title="phone"></phone>
+        <inp :title="address"  v-if="addressFlag" @dismiss="dismiss" @sureValue="sureValueaddr"></inp>
+        <inp :title="phone"  v-if="phoneFlag" @dismiss="dismiss" @sureValue="sureValuephone"></inp>
+        <inp :title="codeNum"  v-if="codeNumFlag" @dismiss="dismiss" @sureValue="sureValuecode"></inp>
     </div>
 </template>
 
 <script>
     import { Dialog } from 'vant';
     import cityCompontents from '../../compomtent/city/city';
-    import phone from '../../compomtent/input/input';
+    import inp from '../../compomtent/inp/inp';
     export default {
         name: "register_news",
         components:{
             cityCompontents,
-            phone
+            inp
         },
         data(){
             return {
@@ -195,7 +197,10 @@
                 className:"",
                 topNum:0,
                 clientHeightStart:"",
-                marginBottom:0
+                marginBottom:0,
+                addressFlag:false,
+                phoneFlag:false,
+                codeNumFlag:false
 
             }
         },
@@ -267,6 +272,29 @@
             // });
         },
         methods:{
+        	dismiss(){
+        		this.addressFlag =false;
+                this.phoneFlag=false;
+                this.codeNumFlag=false
+        	},
+        	sureValueaddr(val){
+        		this.addressFlag =false;
+                this.phoneFlag=false;
+                this.codeNumFlag=false
+        		this.address = val
+        	},
+        	sureValuephone(val){
+        		this.addressFlag =false;
+                this.phoneFlag=false;
+                this.codeNumFlag=false
+        		this.phone = val
+        	},
+        	sureValuecode(val){
+        		this.addressFlag =false;
+                this.phoneFlag=false;
+                this.codeNumFlag=false
+        		this.codeNum = val
+        	},
             comparison(){
 
                 var province = this.location.province;
