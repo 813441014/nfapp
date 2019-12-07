@@ -24,19 +24,19 @@
                     </div>
                 </div>
             </div>
-            <div class="mainFlex addCard" v-if="selIndex == 0" >
+            <div class="mainFlex addCard" v-if="selIndex == 1" >
                 <p>证件号码</p>
                 <div class="flexEnd">
                     <input type="text" placeholder="请输入证件号码" id="cardNum" v-model="cardNum">
                 </div>
             </div>
-            <div class="mainFlex addFiles" v-if="selIndex == 1">
+            <div class="mainFlex addFiles" v-if="selIndex == 2">
                 <p>营业执照</p>
                 <div class="flexEnd">
                     <input type="text" placeholder="请输入营业执照" id="photo_number" v-model="photo_number" >
                 </div>
             </div>
-            <div class="main imgtype" id="addCard" v-if="selIndex == 0">
+            <div class="main imgtype" id="addCard" v-if="selIndex == 1">
                 <p>选填</p>
                 <div class="imgUli"  id="cardImg">
                     <div v-for="items in cardUrl" class="imgLi" :key="items">
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="main imgtype" id="addFiles" v-if="selIndex == 1">
+            <div class="main imgtype" id="addFiles" v-if="selIndex == 2">
                 <p>上传营业资质/证照</p>
                 <div class="imgUli" id="yyImg">
                                     <div v-for="items in zzImg" class="imgLi" :key="items">
@@ -121,9 +121,9 @@
 <!--            </div>-->
 <!--            <van-picker :columns="columns" @change="onChange" />-->
 <!--        </van-popup>-->
-        <inp :title="address"  v-if="addressFlag" @dismiss="dismiss" @sureValue="sureValueaddr"></inp>
-        <inp :title="phone"  v-if="phoneFlag" @dismiss="dismiss" @sureValue="sureValuephone"></inp>
-        <inp :title="codeNum"  v-if="codeNumFlag" @dismiss="dismiss" @sureValue="sureValuecode"></inp>
+        <inp :title="address" type="text" v-if="addressFlag" @dismiss="dismiss" @sureValue="sureValueaddr"></inp>
+        <inp :title="phone"  type="number"v-if="phoneFlag" @dismiss="dismiss" @sureValue="sureValuephone"></inp>
+        <inp :title="codeNum" type="number"  v-if="codeNumFlag" @dismiss="dismiss" @sureValue="sureValuecode"></inp>
     </div>
 </template>
 
@@ -140,7 +140,7 @@
         data(){
             return {
                 realName:"",
-                selIndex:0,
+                selIndex:1,
                 cardNum:"",
                 photo_number:"",
                 phone:"",

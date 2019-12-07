@@ -258,6 +258,8 @@
                         for(var i=0;i<res.data.data.length;i++){
                             if( res.data.data[i].image  != ''){
                                 res.data.data[i].image =  res.data.data[i].image.split(",");
+                            }else{
+                                res.data.data[i].image = []
                             }
 
                             res.data.data[i].creatTime = formatTime01(res.data.data[i].creat_time);

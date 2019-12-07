@@ -49,7 +49,7 @@
             <div class="mainFlex">
                 <p class="title">工资</p>
                 <div>
-                    <input type="number" placeholder="如不填写默认面议" v-model="price">
+                    <input type="number" placeholder="如不填写默认面议" v-model="price" readonly="readonly" @click="priceFlag = true">
                     <span>元</span>
                 </div>
                 <span class="leftIcon">*</span>
@@ -57,7 +57,7 @@
             <div class="mainFlex">
                 <p class="title">联系电话</p>
                 <div>
-                    <input type="text" placeholder="请输入电话" v-model="phone">
+                    <input type="text" placeholder="请输入电话" v-model="phone" readonly="readonly" @click="phoneFlag = true">
                 </div>
                 <span class="leftIcon">*</span>
             </div>
@@ -74,14 +74,14 @@
             <div class="mainFlex">
                 <p class="title">详细地址</p>
                 <div>
-                    <input type="text" placeholder="请输入详细地址" v-model="addressName">
+                    <input type="text" placeholder="请输入详细地址" v-model="addressName" readonly="readonly" @click="addressFlag = true">
                 </div>
                 <span class="leftIcon">*</span>
             </div>
             <div class="main">
                 <p class="title">描述</p>
                 <div>
-                        <textarea type="text" :placeholder="place"  v-model="description"> </textarea>
+                        <textarea type="text" :placeholder="place"  v-model="description" readonly="readonly" @click="descriptionFlag = true"> </textarea>
                 </div>
             </div>
 
@@ -89,10 +89,13 @@
         </div>
         <sexComponent v-if="flag" @chotype="chooseSex()" @dismiss="dismiss"></sexComponent>
         <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
-        
-        
-        
-         <inp :title="address"  v-if="addressFlag" @dismiss="dismiss" @sureValue="sureValueaddr"></inp>
+
+
+
+         <inp :title="price" type="number" v-if="priceFlag" @dismiss="dismissInp" @sureValue="sureValueprice"></inp>
+         <inp :title="phone" type="number" v-if="phoneFlag" @dismiss="dismissInp" @sureValue="sureValuephone"></inp>
+         <inp :title="addressName" type="text" v-if="addressFlag" @dismiss="dismissInp" @sureValue="sureValueaddr"></inp>
+        <text_inp :title="description"  v-if="descriptionFlag" @dismiss="dismissInp" @sureValue="sureValuedescription"></text_inp>
     </div>
 </template>
 
@@ -102,15 +105,21 @@
     import { Dialog } from 'vant';
      import cityCompontents from '../../compomtent/city/city';
      import inp from '../../compomtent/inp/inp';
+     import text_inp from '../../compomtent/inp/text';
     export default {
         name: "publish_person",
         components:{
             sexComponent,
             cityCompontents,
-            inp
+            inp,
+            text_inp
         },
         data(){
             return {
+                priceFlag:false,
+                phoneFlag:false,
+                addressFlag:false,
+                descriptionFlag:false,
                 flag:false,
                 sex:"",
                 age:"",
@@ -175,6 +184,41 @@
             }
         },
         methods:{
+            dismissInp(){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+
+            },
+            sureValueprice(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.price = val;
+            },
+            sureValueaddr(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.addressName = val;
+            },
+            sureValuephone(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.phone = val;
+            },
+            sureValuedescription(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.description = val;
+            },
             gain(){
                 this.show = true
             },

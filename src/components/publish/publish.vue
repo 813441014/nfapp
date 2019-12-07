@@ -59,7 +59,7 @@
         <div class="mainFlex">
             <p class="title">数量</p>
             <div>
-                <input type="number" placeholder="请输入数量" v-model="num">
+                <input type="number" placeholder="请输入数量" v-model="num" readonly="readonly" @click="numFlag = true">
                 <span>{{selUnit.name}}</span>
             </div>
              <span class="leftIcon">*</span>
@@ -67,14 +67,14 @@
         <div class="mainFlex">
             <p class="title">价格</p>
             <div>
-                <input type="number" placeholder="如不填写默认面议" v-model="price">
+                <input type="number" placeholder="如不填写默认面议" v-model="price" readonly="readonly" @click="priceFlag = true">
                 <span>元/{{selUnit.name}}</span>
             </div>
         </div>
         <div class="mainFlex">
             <p class="title">联系电话</p>
             <div>
-                <input type="text" placeholder="请输入电话" v-model="phone">
+                <input type="text" placeholder="请输入电话" v-model="phone" readonly="readonly" @click="phoneFlag = true">
             </div>
             <span class="leftIcon">*</span>
         </div>
@@ -91,14 +91,14 @@
         <div class="mainFlex">
             <p class="title">详细地址</p>
             <div>
-                <input type="text" placeholder="请输入详细地址" v-model="addressName">
+                <input type="text" placeholder="请输入详细地址" v-model="addressName" readonly="readonly" @click="addressFlag = true">
             </div>
             <span class="leftIcon">*</span>
         </div>
         <div class="main">
             <p class="title">描述</p>
             <div>
-                <textarea type="text" :placeholder="place"  v-model="description">
+                <textarea type="text" :placeholder="place"  v-model="description" readonly="readonly" @click="descriptionFlag = true">
                 </textarea>
             </div>
         </div>
@@ -107,6 +107,13 @@
         <chooseUnit v-if="unit_flag" :item="unitType01" @chotype="chouni" @dismiss="dismiss"></chooseUnit>
         <chooseDeal v-if="deal_flag" :item="goods_style_arr" @chotype="chodeal" @dismiss="dismiss"></chooseDeal>
         <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+
+    <inp :title="num"  type="number" v-if="numFlag" @dismiss="dismissInp" @sureValue="sureValuenum"></inp>
+    <inp :title="price" type="number" v-if="priceFlag" @dismiss="dismissInp" @sureValue="sureValueprice"></inp>
+    <inp :title="phone" type="number" v-if="phoneFlag" @dismiss="dismissInp" @sureValue="sureValuephone"></inp>
+    <inp :title="addressName" type="text" v-if="addressFlag" @dismiss="dismissInp" @sureValue="sureValueaddr"></inp>
+    <text_inp :title="description"  v-if="descriptionFlag" @dismiss="dismissInp" @sureValue="sureValuedescription"></text_inp>
+
     </div>
 </template>
 
@@ -117,6 +124,8 @@
     import { Toast } from 'vant';
     import { Dialog } from 'vant';
     import cityCompontents from '../../compomtent/city/city';
+    import inp from '../../compomtent/inp/inp';
+    import text_inp from '../../compomtent/inp/text';
 
     export default {
         name: "publish",
@@ -124,10 +133,17 @@
             chooseType,
             chooseUnit,
             chooseDeal,
-            cityCompontents
+            cityCompontents,
+            inp,
+            text_inp
         },
         data(){
             return {
+                numFlag:false,
+                priceFlag:false,
+                phoneFlag:false,
+                addressFlag:false,
+                descriptionFlag:false,
                 show:false,
                 choose_flag:false,
                 unit_flag:false,
@@ -343,8 +359,55 @@
 
         },
         methods:{
+            dismissInp(){
+                this.numFlag = false;
+                this.priceFlag = false;
+                    this.phoneFlag = false;
+                    this.addressFlag =false;
+                    this.descriptionFlag =false;
+            },
+            sureValuenum(val){
+                this.numFlag = false;
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag =false;
+                this.descriptionFlag =false;
+              this.num = val;
+            },
+            sureValueprice(val){
+                this.numFlag = false;
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag =false;
+                this.descriptionFlag =false;
+                this.price = val;
+            },
             gain(){
                 this.show = true
+            },
+            sureValuephone(val){
+                this.numFlag = false;
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag =false;
+                this.descriptionFlag =false;
+                this.phone = val;
+            },
+            sureValueaddr(val){
+                this.numFlag = false;
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag =false;
+                this.descriptionFlag =false;
+                this.addressName = val
+            },
+            sureValuedescription(val){
+                this.numFlag = false;
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag =false;
+                this.descriptionFlag =false;
+                this.description = val
             },
             confirmSure(obj){
                 this.show = false;

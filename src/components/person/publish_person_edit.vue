@@ -50,7 +50,7 @@
             <div class="mainFlex">
                 <p class="title">工资</p>
                 <div>
-                    <input type="number" placeholder="如不填写默认面议" v-model="price">
+                    <input type="number" placeholder="如不填写默认面议" v-model="price" readonly="readonly" @click="priceFlag = true">
                     <span>元</span>
                 </div>
                 <span class="leftIcon">*</span>
@@ -58,7 +58,7 @@
             <div class="mainFlex">
                 <p class="title">联系电话</p>
                 <div>
-                    <input type="text" placeholder="请输入电话" v-model="phone">
+                    <input type="text" placeholder="请输入电话" v-model="phone" readonly="readonly" @click="phoneFlag = true">
                 </div>
                 <span class="leftIcon">*</span>
             </div>
@@ -75,20 +75,25 @@
         <div class="mainFlex">
             <p class="title">详细地址</p>
             <div>
-                <input type="text" placeholder="请输入详细地址" v-model="addressName">
+                <input type="text" placeholder="请输入详细地址" v-model="addressName" readonly="readonly" @click="addressFlag = true">
             </div>
             <span class="leftIcon">*</span>
         </div>
             <div class="main">
                 <p class="title">描述</p>
                 <div>
-                    <textarea type="text" :placeholder="place"  v-model="description"> </textarea>
+                    <textarea type="text" :placeholder="place"   v-model="description" readonly="readonly" @click="descriptionFlag = true"> </textarea>
                 </div>
             </div>
 
 
         </div>
         <sexComponent v-if="flag" @chotype="chooseSex()" @dismiss="dismiss"></sexComponent>
+        <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+        <inp :title="price" type="number" v-if="priceFlag" @dismiss="dismissInp" @sureValue="sureValueprice"></inp>
+        <inp :title="phone"type="number"  v-if="phoneFlag" @dismiss="dismissInp" @sureValue="sureValuephone"></inp>
+        <inp :title="addressName" type="text" v-if="addressFlag" @dismiss="dismissInp" @sureValue="sureValueaddr"></inp>
+        <text_inp :title="description"  v-if="descriptionFlag" @dismiss="dismissInp" @sureValue="sureValuedescription"></text_inp>
     </div>
 </template>
 
@@ -96,10 +101,16 @@
     import sexComponent from "../../compomtent/sex/sex";
     import { Toast } from 'vant';
     import { Dialog } from 'vant';
+    import cityCompontents from '../../compomtent/city/city';
+    import inp from '../../compomtent/inp/inp';
+    import text_inp from '../../compomtent/inp/text';
     export default {
         name: "publish_person_edit",
         components:{
-            sexComponent
+            sexComponent,
+            cityCompontents,
+            inp,
+            text_inp
         },
         data(){
             return {
@@ -137,22 +148,32 @@
                  location:{
 
                 },
-                show:false
+                show:false,
+                priceFlag:false,
+                phoneFlag:false,
+                addressFlag:false,
+                descriptionFlag:false,
 
             }
         },
         created(){
+            var address_name = localStorage.getItem("address_name");
+            var province_name = localStorage.getItem("province_name");
+            var city_name = localStorage.getItem("city_name");
+            var area_name = localStorage.getItem("area_name");
+            this.$set(this.location, 'address', address_name);
+            this.$set(this.location, 'province', province_name);
+            this.$set(this.location, 'city',  city_name);
+            this.$set(this.location, 'area', area_name);
         this.$set(this.selId, 'province', localStorage.getItem("province_id"));
          this.$set(this.selId, 'city', localStorage.getItem("city_id"));
          this.$set(this.selId, 'area', localStorage.getItem("area_id"));
-         var address_name = localStorage.getItem("address_name");
-         var province_name = localStorage.getItem("province_name");
-         var city_name = localStorage.getItem("city_name");
-         var area_name = localStorage.getItem("area_name");
-          this.$set(this.location, 'address', address_name);
-        this.$set(this.location, 'province', province_name);
-        this.$set(this.location, 'city',  city_name);
-        this.$set(this.location, 'area', area_name);
+            this.selCity =  this.$route.query.province_name + this.$route.query.city_name +this.$route.query.area_name;
+            this.$set(this.selId, 'province', this.$route.query.province_id);
+            this.$set(this.selId, 'city',this.$route.query.city_id);
+            this.$set(this.selId, 'area', this.$route.query.area_id);
+            this.addressName   =   this.$route.query.addr;
+
             console.log(this.$route.query);
             this.type_choose = this.$route.query.goods_style;
             this.creat_time = (new Date()).getTime();
@@ -170,6 +191,7 @@
             this.description = this.$route.query.description;
             this.goods_content = this.$route.query.goods_name;
             this.image = this.$route.query.image;
+            console.log(typeof(this.image));
             this.price = this.$route.query.price;
             this.phone = this.$route.query.phone;
             this.goods_id = this.$route.query.goods_id;
@@ -182,6 +204,44 @@
             }
         },
         methods:{
+            dismissInp(){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+
+            },
+            sureValueprice(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.price = val;
+            },
+            sureValueaddr(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.addressName = val;
+            },
+            sureValuephone(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.phone = val;
+            },
+            sureValuedescription(val){
+                this.priceFlag = false;
+                this.phoneFlag = false;
+                this.addressFlag = false;
+                this.descriptionFlag = false;
+                this.description = val;
+            },
+            gain(){
+                this.show = true
+            },
         confirmSure(obj){
                 this.show = false;
                 this.$set(this.selId,"province",obj.province);
@@ -262,10 +322,10 @@
                         num:"",
                         price:this.price,
                         phone:this.phone,
-                        province_id:this.address.province_id,
-                        city_id:this.address.city_id,
-                        area_id:this.address.area_id,
-                        addr:this.address.addr,
+                        province_id:this.selId.province,
+                        city_id:this.selId.city,
+                        area_id:this.selId.area,
+                        addr:this.addressName,
                         longitude:this.address.longitude,
                         latitude:this.address.longitude,
                         description:this.description,

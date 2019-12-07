@@ -2,13 +2,8 @@
     <div class="alertBtn">
         <van-overlay :show="show" @click="show = false">
             <div class="wrapper" @click.stop>
-               <div class="inp_div" v-if="type_choose == 'text'">
-
-                   <input type="text" placeholder="请输入..." v-model="val" />
-               </div>
-                <div class="inp_div" v-else>
-
-                    <input type="number" placeholder="请输入..." v-model="val" />
+                <div class="inp_div">
+                    <textarea name="" id="" cols="30" rows="10" v-model="val" placeholder="请输入"></textarea>
                 </div>
                 <div class="mainFlex">
                     <p @click="dismiss">取消</p>
@@ -24,36 +19,28 @@
 
     export default {
         name: "inp",
-        props:["title","type"],
+        props:["title"],
         data(){
             return{
                 show:true,
-                val:this.title,
-                type_choose:this.type
+                val:this.title
             }
         },
-        created(){
-            console.log(this.type)
-        },
         watch:{
-        	title(oldValue,newValue){
-        		this.val = oldValue
-        	},
-            type(oldValue,newValue){
-                this.type_choose = oldValue
-            },
-
+            title(oldValue,newValue){
+                this.val = oldValue
+            }
         },
         methods:{
-        	sure(){
-        		console.log(122)
-        		this.$emit("sureValue",this.val)
-        	},
-        	dismiss(){
-        		console.log(122)
-        		this.$emit("dismiss")
-        	}
-        	
+            sure(){
+                console.log(122)
+                this.$emit("sureValue",this.val)
+            },
+            dismiss(){
+                console.log(122)
+                this.$emit("dismiss")
+            }
+
         }
     }
 </script>
@@ -81,8 +68,9 @@
         height: 1rem;
     }
     .inp_div{
-        padding: 0.2rem 0;
-        margin-bottom: 0.2rem;
+        padding: 0.2rem 0.6rem;
+        /*margin-bottom: 0.2rem;*/
+        margin-top: 0.2rem;
     }
     .mainFlex{
         display: flex;
@@ -96,5 +84,15 @@
     }
     .mainFlex p:nth-of-type(2){
         color: #1bb339;
+    }
+    textarea{
+        resize: none;
+        border: none;
+        width: 100%;
+        height: 1.2rem;
+        line-height: 0.6rem;
+        font-size: 0.4rem;
+        text-align: center;
+
     }
 </style>
