@@ -10,14 +10,14 @@
             </div>
             <ul class="bottom">
                 <li index="1" class="active" >
-                    <router-link to="/mainroute/index">
+                    <router-link to="/mainroute/index" replace>
                         <span class="iconfont icon-shouye1"></span>
                         <p>首页</p>
                     </router-link>
 
                 </li>
                 <li index="2">
-                    <router-link to="/mainroute/person">
+                    <router-link to="/mainroute/person" replace>
                         <span class="iconfont icon-icon-test"></span>
                         <p>我的</p>
                     </router-link>

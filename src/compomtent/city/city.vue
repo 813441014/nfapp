@@ -1,6 +1,7 @@
 <template>
     <div>
-        <van-popup  v-model="showFlag" position="bottom"  :style="{ height: '60%' }">
+        <div>这里</div>
+        <van-popup  v-model="true" :close-on-click-overlay="overlay"  position="bottom"  :style="{ height: '60%' }"  @click-overlay="dissmissAlert">
             <div class="nowLocation" v-if="!flag">
                 <p class="leftdiv">当前位置</p>
                 <p class="nowarea">{{location.address == ""?"正在获取...":location.address}} </p>
@@ -25,6 +26,7 @@
         data(){
             return{
                 showFlag:this.show,
+                overlay:false,
                 columns:[{
                     "values": ["北京", "天津", "河北省", "山西省", "内蒙古自治区", "辽宁省", "吉林省", "黑龙江省", "上海", "江苏省", "浙江省", "安徽省", "福建省", "江西省", "山东省", "河南省", "湖北省", "湖南省", "广东省", "广西壮族自治区", "海南省", "重庆", "四川省", "贵州省", "云南省", "西藏自治区", "陕西省", "甘肃省", "青海省", "宁夏回族自治区", "新疆维吾尔自治区", "台湾", "香港特别行政区", "澳门特别行政区", "海外"],
                     "className": "name1"
@@ -12576,11 +12578,13 @@
             }
         },
         created() {
+            console.log("sdfksklsfklsjdf",this.showFlag)
                     this.showFlag = this.show
         },
         watch:{
             show(oldValue,newValue){
-            this.showFlag = oldValue
+                console.log(oldValue);
+                 this.showFlag = oldValue
             }
 
         },
@@ -12669,6 +12673,11 @@
 
                 // console.log(response.data)
             },
+            dissmissAlert(){
+                console.log(this.showFlag +"ashkfjhkfjs")
+                // this.$emit("alertMiss")
+                this.showFlag = false
+            }
         }
     }
 </script>

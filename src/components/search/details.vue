@@ -97,7 +97,12 @@ import Swiper from 'swiper';
             new Swiper ('.swiper-container', {
                               loop: true,
                               // 如果需要分页器
-                              pagination: '.pagination'
+                              pagination: '.pagination',
+                //自动播放
+                autoplay:{
+                    delay:2000,
+                    disableOnInteraction:false
+                },
                           })
         },
         methods:{

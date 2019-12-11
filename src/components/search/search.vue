@@ -6,7 +6,7 @@
             </div>
             <div class="search_inp">
                 <span class="iconfont icon-sousuo"></span>
-                <input type="text" placeholder="玉米" v-model="search" v-on:input ="inputFunc">
+                <input type="search" placeholder="玉米" v-model="search"  @keyup.13="inputFunc()">
             </div>
         </div>
 
@@ -161,9 +161,10 @@
         created(){
             this.userId = localStorage.getItem("userId");
             if(this.$route.query.id){
-                this.type = this.$route.query.id
+                this.type = this.$route.query.id;
+                this.init()
             }
-            this.init()
+
         },
         methods:{
             prewurl(key,index){
@@ -196,9 +197,7 @@
             },
             //fuzzy_search() 调取模糊搜索的方法
             inputFunc:function(){
-                if(this.searchVal.trim()){
                    this.init()
-                }
             },
             //初始化
             init(){

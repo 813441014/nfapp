@@ -261,18 +261,24 @@
             },
         //    注册
             register(){
-                if(localStorage.getItem("type")){
-                    this.$router.push("/register_news")
-                }else{
-
-                    this.$router.push({
-                        path:"/register",
-                        query:{
-                            flag:true
-                        }
-                    })
-
-                }
+                // if(localStorage.getItem("type")){
+                //     this.$router.push("/register_news")
+                // }else{
+                //
+                //     this.$router.push({
+                //         path:"/register",
+                //         query:{
+                //             flag:true
+                //         }
+                //     })
+                //
+                // }
+                this.$router.push({
+                    path:"/register",
+                    query:{
+                        flag:true
+                    }
+                })
 
             },
             toUrl(){

@@ -72,8 +72,7 @@
             },
             switchTabs(index){
                 this.selIndex = index;
-                //1 商家 2 农户
-                localStorage.setItem("type",index);
+
                 if(this.register_flag){
                     this.$router.push({
                         path:"/register_news",
@@ -82,6 +81,15 @@
                         }
                     })
                 }else{
+                    //1 商家 2 农户
+                    if(index == localStorage.getItem("type")){
+                        localStorage.setItem("type",index);
+                    }else{
+                        localStorage.clear();
+                        localStorage.setItem("type",index);
+                    }
+
+
                     this.$router.push({
                         path:"/mainroute",
                         query:{

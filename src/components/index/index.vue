@@ -132,6 +132,8 @@
         </div>
         <div id="allmap"></div>
 
+
+        <div>向大家弗兰克GV</div>
         <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
 
     </div>
@@ -246,6 +248,10 @@
            this.initData()
         },
         watch:{
+            show(newVal,oldVal){
+                console.log(this.show)
+                this.show = newVal
+            }
         },
         mounted(){
             if(localStorage.getItem("area_id")){
@@ -256,6 +262,9 @@
 
         },
         methods:{
+            alertMiss(){
+
+            },
            comparison(){
 
                 var province = localStorage.getItem("province_id");
@@ -287,7 +296,10 @@
                     localStorage.setItem("province_name",_this.id01);
                     localStorage.setItem("city_name",_this.id02);
                     localStorage.setItem("area_name",_this.id03);
-                   _this.$set(_this.location,"area",_this.id03)
+                    localStorage.setItem("address_name",_this.id01+_this.id02+_this.id03);
+                    console.log(_this.id01+_this.id02+_this.id03)
+                   _this.$set(_this.location,"area",_this.id03);
+                   _this.$set(_this.location, 'address', _this.id01+_this.id02+_this.id03);
 
 
 
@@ -319,7 +331,10 @@
                 this.show = false;
             },
             tap_address(){
-               this.show = true
+               console.log("1");
+               console.log(this.show);
+               this.show = true;
+                console.log(this.show);
             },
             //百度接口 获取经纬度
             getLocation() {
@@ -336,29 +351,65 @@
                         console.log(1)
                         var mk = new BMap.Marker(r.point);
                         map.addOverlay(mk);
+
                         map.panTo(r.point);
-                        _this.analysis(r);
+                        var  bd_lng =r.point.lng;
+                        var  bd_lat =r.point.lat;
+                        var X_PI = Math.PI * 3000.0 / 180.0;
+                        var x = bd_lng - 0.0065;
+                        var y = bd_lat - 0.006;
+                        var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * X_PI);
+                        var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * X_PI);
+                        var gg_lng = z * Math.cos(theta);
+                        var gg_lat = z * Math.sin(theta);
+                        r.point.lng = gg_lng;
+                        r.point.lat = gg_lat;
+                        _this.analysis(r.point);
                     } else {
-                        console.log(2)
+                        console.log(2);
+                        Dialog({ message: "获取地理位置信息失败，请授权",confirmButtonColor:"#1bb339" });
+
                     }
                 }, {
                     enableHighAccuracy: true
                 })
             },
+            bd_decrypt(e) {
+               console.log(e)
+                var  bd_lng =e.point.lng;
+                var  bd_lat =e.point.lat;
+                var X_PI = Math.PI * 3000.0 / 180.0;
+                var x = bd_lng - 0.0065;
+                var y = bd_lat - 0.006;
+                var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * X_PI);
+                var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * X_PI);
+                var gg_lng = z * Math.cos(theta);
+                var gg_lat = z * Math.sin(theta);
+                var array={
+                    lat:gg_lat,
+                    lng:gg_lat
+                };
+
+
+                this.analysis(array)
+                // return {lng: gg_lng, lat: gg_lat}
+            },
             //地址逆解析 经纬度获取详细信息
             analysis(e) {
+               console.log(e)
                 var _this = this;
                 var geoc = new BMap.Geocoder();
-                var pt = e.point;
+                var pt = e;
                 geoc.getLocation(pt, function(rs) {
                     var addComp = rs.addressComponents;
                     var addressdetails = addComp.province + "" + addComp.city + "" + addComp.district
                     // + "" + addComp.street + "" + addComp.streetNumber;
-
+                    console.log(addressdetails)
                     _this.$set(_this.location, 'address', addressdetails);
                     _this.$set(_this.location, 'province', addComp.province);
                     _this.$set(_this.location, 'city', addComp.city);
                     _this.$set(_this.location, 'area', addComp.district);
+
 
                     localStorage.setItem("address_name",addressdetails);
 
@@ -412,7 +463,12 @@
                           new Swiper ('.swiper-container', {
                               loop: true,
                               // 如果需要分页器
-                              pagination: '.pagination'
+                              pagination: '.pagination',
+                              //自动播放
+                              autoplay:{
+                                  delay:2000,
+                                  disableOnInteraction:false
+                              },
                           })
                       })
 

@@ -44,6 +44,7 @@
                 this.$router.go(-1)
             },
             toLogin(){
+                var type = this.$route.query.type;
                 var _this = this;
                 if(_this.pass1 == ""){
                     // $.toast("请输入密码", "forbidden");
@@ -65,7 +66,7 @@
                 }
                 this.ajax.post(this.mainUrl+ "user/Register/register",this.qs.stringify({
                         phone:_this.$route.query.phone,
-                        user_type:localStorage.getItem("type"),
+                        user_type:type,
                         user_name:_this.$route.query.name,
                         photo_type:_this.$route.query.photo_type,
                         address:_this.$route.query.address,
@@ -83,7 +84,7 @@
                 ).then((res)=>{
                     // console.log(response.data)
                     if(res.data.code == 0){
-                        this.$router.go(-2)
+                        this.$router.go(-3)
                     }else{
                         Dialog({ message: res.data.msg,confirmButtonColor:"#1bb339" });
                     }
