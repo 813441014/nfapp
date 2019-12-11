@@ -1,8 +1,9 @@
 <template>
-    <div>
-        <div>这里</div>
-        <van-popup  v-model="true" :close-on-click-overlay="overlay"  position="bottom"  :style="{ height: '60%' }"  @click-overlay="dissmissAlert">
-            <div class="nowLocation" v-if="!flag">
+    <div  class="moleDiv" @click="dissmissAlert">
+        <!--@click-overlay="dissmissAlert"-->
+        <div class="moleAlert" @click.stop="kong">
+        	
+        	 <div class="nowLocation" v-if="!flag">
                 <p class="leftdiv">当前位置</p>
                 <p class="nowarea">{{location.address == ""?"正在获取...":location.address}} </p>
                 <p class="right_sure" @click="confirm()">确定</p>
@@ -13,7 +14,10 @@
                <p class="right_sure" @click="confirm()">确定</p>
             </div>
             <van-picker :columns="columns" @change="onChange" />
-        </van-popup>
+        </div>
+        <!--<van-popup  v-model="true" :close-on-click-overlay="overlay"  position="bottom"  :style="{ height: '60%' }">-->
+           
+        <!--</van-popup>-->
     </div>
 
 </template>
@@ -12675,8 +12679,10 @@
             },
             dissmissAlert(){
                 console.log(this.showFlag +"ashkfjhkfjs")
-                // this.$emit("alertMiss")
-                this.showFlag = false
+                   this.$emit("alertMiss")
+            },
+            kong(){
+            	
             }
         }
     }
@@ -12708,5 +12714,23 @@
         border-radius:0.2rem;
         height: 0.8rem;
         line-height: 0.8rem;
+    }
+    .moleDiv{
+    	position: fixed;
+    	left:0;
+    	right: 0;
+    	top: 0;
+    	bottom: 0;
+    	background: rgba(0,0,0,0.2); 
+    	z-index: 100;
+    }
+    .moleAlert{
+    	position: fixed;
+    	left:0;
+    	right: 0;
+    	height: 60%;
+    	bottom: 0;
+    	z-index: 101;
+    	background: #fff;
     }
 </style>

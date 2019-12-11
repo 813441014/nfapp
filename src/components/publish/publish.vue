@@ -106,7 +106,7 @@
         <chooseType v-if="choose_flag" :item="goodsType01" @chotype="chotype" @dismiss="dismiss" :typeTit="typeName"></chooseType>
         <chooseUnit v-if="unit_flag" :item="unitType01" @chotype="chouni" @dismiss="dismiss"></chooseUnit>
         <chooseDeal v-if="deal_flag" :item="goods_style_arr" @chotype="chodeal" @dismiss="dismiss"></chooseDeal>
-        <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+        <cityCompontents v-if="show" :location="location" @confirmSure="confirmSure" @alertMiss="alertMiss"></cityCompontents>
 
     <inp :title="num"  type="number" v-if="numFlag" @dismiss="dismissInp" @sureValue="sureValuenum"></inp>
     <inp :title="price" type="number" v-if="priceFlag" @dismiss="dismissInp" @sureValue="sureValueprice"></inp>
@@ -359,6 +359,9 @@
 
         },
         methods:{
+        	 alertMiss(){
+               this.show = false
+            },
             dismissInp(){
                 this.numFlag = false;
                 this.priceFlag = false;

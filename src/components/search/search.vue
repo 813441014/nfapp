@@ -114,7 +114,7 @@
         </div>
         <filterCompontent v-if="flag" @dismiss="dismiss" @sure="sure" :selDate="selDate"></filterCompontent>
         <filterPrice v-if="flag_filter" :max_price="max_price" :min_price="min_price" @dismiss="dismiss" @sure="sure_price"></filterPrice>
-        <cityCompontents :show="show" :location="location" @confirmSure="confirmSure" :flag="true" @dismiss="dismissCity"></cityCompontents>
+        <cityCompontents v-if="show" :location="location" @dismiss="dismissCity" @confirmSure="confirmSure" @alertMiss="alertMiss" flag="true"></cityCompontents>
 
     </div>
 </template>
@@ -167,6 +167,9 @@
 
         },
         methods:{
+        	 alertMiss(){
+               this.show = false
+            },
             prewurl(key,index){
                 console.log(key)
                 console.log( this.initData[key]);

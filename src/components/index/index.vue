@@ -133,8 +133,7 @@
         <div id="allmap"></div>
 
 
-        <div>向大家弗兰克GV</div>
-        <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+        <cityCompontents v-if="show" :location="location" @confirmSure="confirmSure" @alertMiss="alertMiss"></cityCompontents>
 
     </div>
 </template>
@@ -263,7 +262,7 @@
         },
         methods:{
             alertMiss(){
-
+               this.show = false
             },
            comparison(){
 

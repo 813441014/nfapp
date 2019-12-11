@@ -108,7 +108,7 @@
         <div>
 <!--            fg {{result}}-->
         </div>
-            <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+           <cityCompontents v-if="show" :location="location" @confirmSure="confirmSure" @alertMiss="alertMiss"></cityCompontents>
 
 
 
@@ -272,6 +272,9 @@
             // });
         },
         methods:{
+        	 alertMiss(){
+               this.show = false
+            },
         	dismiss(){
         		this.addressFlag =false;
                 this.phoneFlag=false;

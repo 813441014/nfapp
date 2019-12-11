@@ -89,7 +89,7 @@
 
         </div>
         <sexComponent v-if="flag" @chotype="chooseSex()" @dismiss="dismiss"></sexComponent>
-        <cityCompontents :show="show" :location="location" @confirmSure="confirmSure"></cityCompontents>
+        <cityCompontents v-if="show" :location="location" @confirmSure="confirmSure" @alertMiss="alertMiss"></cityCompontents>
         <inp :title="price" type="number" v-if="priceFlag" @dismiss="dismissInp" @sureValue="sureValueprice"></inp>
         <inp :title="phone"type="number"  v-if="phoneFlag" @dismiss="dismissInp" @sureValue="sureValuephone"></inp>
         <inp :title="addressName" type="text" v-if="addressFlag" @dismiss="dismissInp" @sureValue="sureValueaddr"></inp>
@@ -204,6 +204,9 @@
             }
         },
         methods:{
+        	 alertMiss(){
+               this.show = false
+            },
             dismissInp(){
                 this.priceFlag = false;
                 this.phoneFlag = false;
