@@ -452,7 +452,7 @@
         z-index: -1;
     }
     .container{
-        /*padding-bottom: 2.08rem;*/
+        padding-bottom: 2.08rem;
     }
     .header{
         position: relative;

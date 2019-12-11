@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="contactUs">
-            <a :href="'tel:'+initData.phone">
+            <a href="tel:15048335348">
                 联系我们
             </a>
 

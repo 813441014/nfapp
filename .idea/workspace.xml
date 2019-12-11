@@ -2,16 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22c918bf-36be-4d1c-819c-f01957f84652" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/compomtent/inp/text.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compomtent/inp/inp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/compomtent/inp/inp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/person/publish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/person/publish.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/person/publish_edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/person/publish_edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/person/publish_person_edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/person/publish_person_edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/publish/publish.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publish/publish.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/publish/publish_person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publish/publish_person.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/register_news.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/register_news.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist.zip" beforeDir="false" afterPath="$PROJECT_DIR$/dist.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/chunk-04677d4b.1e9625e0.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/chunk-39188bd8.64efce22.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/app.d8a926f2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/app.d8a926f2.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-04677d4b.3f677a95.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-04677d4b.3f677a95.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-39188bd8.13286c49.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-39188bd8.13286c49.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/address.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/birth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/codeNum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/editphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/idCard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/job.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/perImg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/phoneNum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/qqNum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/record.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/telIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/uploadHeader.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/userName.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/weixin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/img/验证码 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/info.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/info/info.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search/details.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/details.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search/details_person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search/details_person.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/collect.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/hert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/myinfo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/navor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/news.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/nextstep.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/img/order.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-info/set-info.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-phone/img/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-phone/img/editphone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-phone/img/perImg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-phone/img/telIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/set-phone/set-phone.vue" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +127,8 @@
       <workItem from="1575511967387" duration="17620000" />
       <workItem from="1575598923119" duration="3465000" />
       <workItem from="1575604356827" duration="14953000" />
-      <workItem from="1575680379259" duration="5903000" />
+      <workItem from="1575680379259" duration="8269000" />
+      <workItem from="1575855667151" duration="589000" />
     </task>
     <task id="LOCAL-00001" summary="wenzixinxi">
       <created>1575454986982</created>
@@ -142,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1575626642475</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="wenzixinxi">
+      <created>1575686422025</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575686422025</updated>
+    </task>
+    <task id="LOCAL-00009" summary="wenzixinxi">
+      <created>1575686527722</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575686527722</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
