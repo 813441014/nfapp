@@ -99,7 +99,7 @@
                 this.$router.push({
                     path:"/mainroute/index",
                     query:{
-                        type:2 
+                        type:2
                     }
                 })
             },
