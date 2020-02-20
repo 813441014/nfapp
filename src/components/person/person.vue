@@ -45,6 +45,9 @@
             <span class="iconfont icon-xiayibu"></span>
         </div>
     </div>
+    <div class="nDiv" @click="toUrl">
+        农户
+    </div>
     <div class="fixDiv">
         <a href="tel:15048335348">
         <span class="iconfont icon-dianhua"></span>
@@ -91,6 +94,15 @@
 
         },
         methods:{
+            toUrl(){
+                localStorage.setItem("type",2);
+                this.$router.push({
+                    path:"/mainroute/index",
+                    query:{
+                        type:2
+                    }
+                })
+            },
             my_publish(){
                 this.$router.push({
                     path:"/my_publish"
@@ -319,5 +331,17 @@
         border-radius: 100%;
         padding: 0.1rem 0.2rem;
     }
-
+    .nDiv{
+        position: fixed;
+        right: 0.2rem;
+        bottom: 4rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        line-height: 1.6rem;
+        border-radius: 100%;
+        background: #1dd245;
+        text-align: center;
+        font-size: 0.24rem;
+        color: #ffffff;
+    }
 </style>
