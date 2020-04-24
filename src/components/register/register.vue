@@ -42,6 +42,13 @@
             </div>
 
         </div>
+
+        <div @click="toPage()" class="pageCenter">
+            <p>用户协议</p>
+            <p>隐私协议</p>
+        </div>
+
+
     </div>
 
     </div>
@@ -98,6 +105,9 @@
                     })
                 }
 
+            },
+            toPage(){
+                window.location.href='s.html'
             }
         }
     }
@@ -190,5 +200,14 @@
     .active .rightIcon{
         display: block;
     }
-
+    .pageCenter{
+        font-size: 0.4rem;
+        font-weight: initial;
+        display:flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        height: 4rem;
+        color: #70ba2f;
+    }
 </style>
