@@ -208,6 +208,8 @@
         justify-items: center;
         justify-content: center;
         height: 4rem;
+
+
         color: #70ba2f;
     }
 </style>
