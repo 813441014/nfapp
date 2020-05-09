@@ -43,13 +43,34 @@
 
         </div>
 
-        <div @click="toPage()" class="pageCenter">
-            <p>用户协议</p>
-            <p>隐私协议</p>
-        </div>
+<!--        <div @click="toPage()" class="pageCenter">-->
+<!--            <p>用户协议</p>-->
+<!--            <p>隐私协议</p>-->
+<!--        </div>-->
 
 
     </div>
+
+
+        <div class="moleDiv" v-if="displayBlock">
+            <div class="moleAlert">
+
+                <p class="alertTitle">服务协议和隐私政策</p>
+                <div>
+                    请你务必审慎阅读、充分理解“服务协议”和“隐私政策”
+                    各条款，包括但不限于：为了向你提供即时通讯、内容分享等
+                    服务，我们服务收集你的设备信息、操作日志等个人信息。
+                    你可以在“设置”中查看、变更、删除个人信息并管理你的侵权。
+                    你可阅读 <span @click="serveLink">《服务协议》</span>和 <span @click="prelink">《隐私政策》</span>了解详细信息。如你同意，
+                    请点击“同意”开始接受我们的服务。
+                </div>
+                <div class="flexDiv">
+                    <p @click="agreeNo">暂不使用</p>
+                    <p @click="aggreeWith">同意</p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 </template>
@@ -61,7 +82,8 @@
             return{
 
                 selIndex:2,
-                register_flag:false
+                register_flag:false,
+                displayBlock:true
             }
         },
         created(){
@@ -108,12 +130,75 @@
             },
             toPage(){
                 window.location.href='s.html'
+            },
+            serveLink(){
+                window.location.href='s.html'
+            },
+            prelink(){
+                window.location.href='pre.html'
+            },
+            aggreeWith(){
+               this.displayBlock = false
+            },
+            agreeNo(){
+                uexWidgetOne.exit(0);
             }
         }
     }
 </script>
 
 <style scoped>
+    .moleDiv{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 100;
+    }
+    .moleAlert{
+        width: 80%;
+        /*height: 400px;*/
+        font-size: 0.26rem;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #ffffff;
+        z-index: 101;
+        -webkit-border-radius: 0.2rem;
+        -moz-border-radius: 0.2rem;
+        border-radius: 0.2rem;
+    }
+    .moleAlert div{
+        padding: 0 0.2rem;
+        font-size: 0.24rem;
+        line-height: 0.5rem;
+    }
+    .moleAlert div span{
+        color: #70ba2f;
+    }
+    .alertTitle{
+        font-size: 0.4rem;
+        text-align: center;
+        line-height: 1.6rem;
+    }
+    .flexDiv{
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #f3f3f3;
+        margin-top: 0.3rem;
+    }
+    .flexDiv p{
+        width: 50%;
+        text-align: center;
+        line-height: 1.2rem;
+
+    }
+    .flexDiv p:nth-of-type(2){
+        color: #70ba2f;
+    }
     .header{
         position: fixed;
         top: 0;
