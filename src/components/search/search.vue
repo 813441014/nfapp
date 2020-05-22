@@ -35,7 +35,17 @@
             <noData v-if="initData.length == 0"></noData>
             <div class="uli" v-for="(items,index) in initData" :key="index" @click="details(items.goods_style,index)">
                 <div class="recommend_items">
-                    <p class="name"><span class="redbtn">优选</span>{{items.goods_name}}</p>
+                    <p class="name">
+<!--                        <span class="redbtn">优选</span>-->
+                        <span class="redbtn" v-if="items.goods_style_xi == 1">土地出租</span>
+                        <span class="redbtn" v-else-if="items.goods_style_xi == 2">土地出让</span>
+                        <span class="redbtn" v-else-if="items.goods_style_xi == 3">农机具求租</span>
+                        <span class="redbtn" v-else-if="items.goods_style_xi == 4">农机具购买</span>
+                        <span class="redbtn" v-else-if="items.goods_style_xi == 11">土地承包</span>
+                        <span class="redbtn" v-else-if="items.goods_style_xi == 12">土地流转</span>
+                        <span class="redbtn" v-else-if="items.goods_style_xi == 13">农机具出租</span>
+                        <span class="redbtn" v-else-if="items.goods_style_xi == 14">农机具销售</span>
+                        {{items.goods_name}}</p>
                     <p class="content">
                         {{items.description}}
                     </p>

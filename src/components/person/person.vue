@@ -3,7 +3,7 @@
     <div class="header">
         <img src="../../assets/image/personBac.png" alt="" class="personBac">
         <div class="headerNav">
-            <img src="../../assets/image/banner.png" alt="">
+            <img :src="head_pic == ''?navor:head_pic" alt="">
             <div class="headCont">
                 <div class="headTit">
                     <p>{{name}}</p>
@@ -36,7 +36,7 @@
         </div>
         <div class="uli" @click="toNews()">
             <span class="iconfont icon-tongzhi"></span>
-            <p>通知消息 <span v-if="unread && unread != 0" class="redBtn">{{unread}}</span></p>
+            <p>通知消息 <span v-if="unread && unread != 0 && unread != 'undefined'" class="redBtn">{{unread}}</span></p>
             <span class="iconfont icon-xiayibu"></span>
         </div>
         <div class="uli" @click="loginOut">
@@ -83,21 +83,24 @@
                 name:"",
                 phone:"",
                 integrity:80,
-                unread: localStorage.getItem("unreadCount")
+                unread: localStorage.getItem("unreadCount"),
+                head_pic:"",
+                navor:require("../../assets/image/navor.png")
             }
         },
         created(){
             this.phone =  localStorage.getItem("phone");
             this.name =  localStorage.getItem("userName");
             this.integrity =  localStorage.getItem("integrity");
-
+            this.head_pic= localStorage.getItem("head_pic");
 
         },
+
         methods:{
             toUrl(){
                 localStorage.setItem("type",2);
                 this.$router.push({
-                    path:"/mainroute/index",
+                    path:"/mainroute",
                     query:{
                         type:2
                     }

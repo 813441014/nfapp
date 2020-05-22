@@ -6,7 +6,7 @@
             </div>
             <p>{{title}}</p>
 
-            <span class="btn" @click="sure()">修改</span>
+            <span class="btn" @click="sure()">保存</span>
         </div>
         <div class="container">
             <div class="mainFlex">

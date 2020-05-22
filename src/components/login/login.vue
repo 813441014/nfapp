@@ -240,6 +240,7 @@
                         localStorage.setItem("city_id",result.data.data.city_id);
                         localStorage.setItem("area_id",result.data.data.area_id);
                         localStorage.setItem("type",result.data.data.user_type);
+                        localStorage.setItem("user_type",result.data.data.user_type);
                         localStorage.setItem("head_pic",result.data.data.head_pic);
                         localStorage.setItem("unreadCount",result.data.data.unreadCount);
 

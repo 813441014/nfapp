@@ -140,6 +140,7 @@
                 ).then((result)=>{
 
                     if(result.data.code == 0) {
+                        localStorage.setItem("head_pic",result.data.data.imageSrc);
                         _this.head_navor = result.data.data.imageSrc;
                         _this.src = result.data.data.imageSrc;
                     }else{
@@ -167,6 +168,7 @@
                 ).then((result)=>{
 
                     if(result.data.code == 0) {
+
                         Toast.success('发布成功');
                         setTimeout(function(){
                             _this.$router.go(-1)

@@ -112,6 +112,14 @@ export default new Router({
             }
         },
         {
+            path: "/search_details_person",
+            name: "search_details",
+            component: resolve => require(['./components/search/details_person.vue'], resolve),
+            meta: {
+                requireAuth: true
+            }
+        },
+        {
             path: "/notice",
             name: "notice",
             component: resolve => require(['./components/notice/notice.vue'], resolve),

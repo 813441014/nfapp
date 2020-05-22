@@ -56,6 +56,7 @@
 </template>
 
 <script>
+    import { Toast } from 'vant';
     export default {
         name: "main",
         data(){
@@ -140,7 +141,15 @@
         },
         methods:{
             popUp(){
-                this.popUp_switch = true
+                console.log(localStorage.getItem("user_type"));
+                console.log(localStorage.getItem("type"));
+                if(localStorage.getItem("user_type") == localStorage.getItem("type")){
+
+                    this.popUp_switch = true
+                }else{
+                    Toast.fail('暂无权限');
+                }
+
             },
             toPublish(id){
                 if(id == 6 || id == 16){

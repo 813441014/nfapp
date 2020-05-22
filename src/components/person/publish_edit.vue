@@ -6,7 +6,7 @@
             </div>
             <p>发布信息</p>
 
-            <span class="btn" @click="sure()">修改</span>
+            <span class="btn" @click="sure()">保存</span>
         </div>
         <div class="container">
             <div class="mainFlex"  v-if="goods_style_falg">
@@ -509,7 +509,7 @@
                         longitude:this.address.longitude,
                         latitude:this.address.longitude,
                         description:this.description,
-                        release_style:this.goods_style,
+                        release_style:this.goods_style == 1?2:1,
                         goods_style:this.type_choose,
                         user_id:this.userId,
                         creat_time:this.creat_time,
