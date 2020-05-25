@@ -45,7 +45,7 @@
             <span class="iconfont icon-xiayibu"></span>
         </div>
     </div>
-    <div class="nDiv" @click="toUrl">
+    <div class="nDiv" @click="toUrl" v-if="type != 2">
         农户
     </div>
     <div class="fixDiv">
@@ -85,6 +85,7 @@
                 integrity:80,
                 unread: localStorage.getItem("unreadCount"),
                 head_pic:"",
+                type: localStorage.getItem("type"),
                 navor:require("../../assets/image/navor.png")
             }
         },
