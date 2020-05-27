@@ -3,40 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="22c918bf-36be-4d1c-819c-f01957f84652" name="Default Changelist" comment="wenzixinxi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-0bb7ec96.80a1af7e.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-0ce6d983.d2b48843.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-1d4830a5.9409b374.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-2b5ab4fc.6123330d.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-3d4faaa6.d2fc8c7c.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-3fcab105.2d85ed04.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-46994d96.8b905428.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-59c3bf49.4dd4d6c9.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-6303c37c.89cec0d8.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-76d4581d.de75adbf.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-fd293f8c.7cf8218b.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/chunk-5f1893c5.e70d01d7.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-0bb7ec96.72d48334.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-0bb7ec96.72d48334.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-0ce6d983.7912218e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-0ce6d983.7912218e.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-1d4830a5.47e0f15c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-1d4830a5.47e0f15c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2b5ab4fc.68a7b753.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-2b5ab4fc.68a7b753.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-3d4faaa6.431fd196.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-3d4faaa6.431fd196.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-46994d96.2e041690.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-46994d96.2e041690.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-59c3bf49.6be016c3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-59c3bf49.6be016c3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-6303c37c.e7358a09.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-6303c37c.e7358a09.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-76d4581d.aca68da0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-76d4581d.aca68da0.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-fd293f8c.34d50069.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-fd293f8c.34d50069.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/person/person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/person/person.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-5f1893c5.f851966e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/chunk-5f1893c5.f851966e.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/publish/publish_person.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publish/publish_person.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/person/person.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+            <state relative-caret-position="1431">
+              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -85,11 +56,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/publish/publish_person.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2781">
-              <caret line="103" column="33" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="33" />
+            <state relative-caret-position="250">
+              <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+              <folding>
+                <element signature="e#4201#4253#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,7 +89,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/search/search.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27">
+            <state relative-caret-position="1026">
               <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
             </state>
           </provider>
@@ -168,6 +142,11 @@
       <find>publish_edit</find>
       <find>release_style</find>
       <find>toUrl</find>
+      <find>toSex</find>
+      <find>chooseSex</find>
+      <find>selSex</find>
+      <find>unit</find>
+      <find>num</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,10 +168,11 @@
         <option value="$PROJECT_DIR$/src/components/person/publish_edit.vue" />
         <option value="$PROJECT_DIR$/src/components/search/search.vue" />
         <option value="$PROJECT_DIR$/src/components/person/person.vue" />
+        <option value="$PROJECT_DIR$/src/components/publish/publish_person.vue" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1926" />
     <option name="width" value="1936" />
     <option name="height" value="1080" />
@@ -225,54 +205,7 @@
               <item name="nf" type="b2602c69:ProjectViewProjectNode" />
               <item name="nf" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="compomtent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="person" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nf" type="b2602c69:ProjectViewProjectNode" />
@@ -280,20 +213,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="publish" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="register" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -306,7 +225,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Doing/new_react_koa" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -399,7 +318,9 @@
       <workItem from="1590212498305" duration="595000" />
       <workItem from="1590220458930" duration="597000" />
       <workItem from="1590221882678" duration="6000" />
-      <workItem from="1590396871133" duration="76000" />
+      <workItem from="1590396871133" duration="879000" />
+      <workItem from="1590455423087" duration="3137000" />
+      <workItem from="1590541652051" duration="1427000" />
     </task>
     <task id="LOCAL-00001" summary="wenzixinxi">
       <created>1575454986982</created>
@@ -471,17 +392,24 @@
       <option name="project" value="LOCAL" />
       <updated>1590126216366</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="wenzixinxi">
+      <created>1590397122196</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1590397122196</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35797000" />
+    <option name="totallyTimeSpent" value="41164000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -495,7 +423,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30218068" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3032191" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -608,6 +536,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/person/person.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1431">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2052">
@@ -632,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/publish/publish_person.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2781">
-          <caret line="103" column="33" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/person/person_edit.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4644">
@@ -653,16 +581,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/login/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6534">
-          <caret line="242" column="55" selection-start-line="242" selection-start-column="55" selection-end-line="242" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/search/search.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
+        <state relative-caret-position="1026">
           <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
         </state>
       </provider>
@@ -670,10 +591,20 @@
     <entry file="file://$PROJECT_DIR$/src/components/person/publish.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/person/person.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/login/login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        <state relative-caret-position="6534">
+          <caret line="242" column="55" selection-start-line="242" selection-start-column="55" selection-end-line="242" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/publish/publish_person.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding>
+            <element signature="e#4201#4253#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

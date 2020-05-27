@@ -310,7 +310,7 @@
                         goods_style:this.type_choose,
                         user_id:this.userId,
                         creat_time:this.creat_time,
-                        sex:this.selSex.id,
+                        sex:this.selSex.index,
                         age:this.age
                     }),
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
