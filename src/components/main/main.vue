@@ -37,6 +37,7 @@
                         </div>
                     </div>
                 </div>
+				<!-- 商家 -->
                 <div class="weui-popup__modal" v-else>
                     <div class="popUli" >
                         <div class="popLi"   v-for="(items,index) in init_data2" @click.stop="toPublish(items.id)" :key="index">
@@ -72,7 +73,7 @@
                     {
                         id:2,
                         name:"农机具",
-                        desc:"购买/求组",
+                        desc:"购买/求租",
                         img: require("../../assets/image/icon2.png")
                     },
                     {
@@ -107,7 +108,7 @@
                     {
                         id:12,
                         name:"农机具",
-                        desc:"销售/出组",
+                        desc:"销售/出租",
                         img: require("../../assets/image/icon2.png")
                     },
                     {

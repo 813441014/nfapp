@@ -114,7 +114,7 @@
                        <div class="recommend_list">
                            <div class="recommend_box recommend_box01" v-for="(items,index) in serveList" :key="index" :class="items.display == '1'?'recommend_box02':'recommend_box01'" :onerror="defaultImg" @click="toDetails(items.article_id,items.assist_type)">
                                <p class="redbtn" v-if="items.display != '1'">优选</p>
-                               <img src="image/banner.png" alt="" v-else :onerror="defaultImg">
+                               <img :src="items.file_url" alt="" v-else :onerror="defaultImg">
                                <div class="recommend_items">
                                    <p class="name"><span class="redbtn" v-if="items.display == '1'">优选</span>{{items.title}}</p>
                                    <p class="details">{{items.description}}</p>

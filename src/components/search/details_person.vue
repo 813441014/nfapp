@@ -26,7 +26,15 @@
             </div>
             <div class="desc">
                 <p class="title">
-                    <span class="redbtn">优选</span>
+                    <!-- <span class="redbtn">优选</span> -->
+					<span class="redbtn" v-if="initData.goods_style_xi == 1">土地出租</span>
+					<span class="redbtn" v-else-if="initData.goods_style_xi == 2">土地出让</span>
+					<span class="redbtn" v-else-if="initData.goods_style_xi == 3">农机具求租</span>
+					<span class="redbtn" v-else-if="initData.goods_style_xi == 4">农机具购买</span>
+					<span class="redbtn" v-else-if="initData.goods_style_xi == 11">土地承包</span>
+					<span class="redbtn" v-else-if="initData.goods_style_xi == 12">土地流转</span>
+					<span class="redbtn" v-else-if="initData.goods_style_xi == 13">农机具出租</span>
+					<span class="redbtn" v-else-if="initData.goods_style_xi == 14">农机具销售</span>
                     <span>
                      {{initData.goods_name}}
                </span>
@@ -41,15 +49,15 @@
             <div class="content">
                 <div class="mainFlex">
                     <p>性别</p>
-                    <p>{{initData.sex}}}</p>
+                    <p>{{initData.sex == 0?'女':'男'}}</p>
                 </div>
                 <div class="mainFlex">
                     <p>年龄</p>
-                    <p>{{initData.age}}}</p>
+                    <p>{{initData.age}}</p>
                 </div>
                 <div class="mainFlex">
                     <p>数量</p>
-                    <p>{{initData.num !=''?initData.num:'不限'}}}</p>
+                    <p>{{initData.num !=''?initData.num:'不限'}}</p>
                 </div>
                 <div class="mainFlex">
                     <p>工资</p>
@@ -72,6 +80,7 @@
 </template>
 
 <script>
+	import Swiper from 'swiper';
     export default {
         name: "search_datails_person",
         data(){
@@ -85,6 +94,10 @@
         },
         created(){
             this.initData = this.$route.query;
+			console.log(this.initData);
+			if(this.initData.image == ""){
+				return false
+			}
             var banner =  this.initData.image.toString();
             if(banner != ""){
                 this.banner = banner.split(",");
