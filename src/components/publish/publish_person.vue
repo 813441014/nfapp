@@ -87,7 +87,7 @@
 
 
         </div>
-        <sexComponent v-if="flag" @chotype="chooseSex()" @dismiss="dismiss"></sexComponent>
+        <sexComponent v-if="flag" @chotype="chooseSex" @dismiss="dismiss"></sexComponent>
          <cityCompontents v-if="show" :location="location" @confirmSure="confirmSure" @alertMiss="alertMiss"></cityCompontents>
 
 
@@ -242,7 +242,8 @@
                 this.flag = false
             },
             chooseSex(index){
-                if(index = 0){
+        	     console.log(index)
+                if(index == 0){
                     this.$set(this.selSex,"index",0);
                     this.$set(this.selSex,"name","女")
                 }else{
@@ -306,7 +307,7 @@
                         longitude:"",
                         latitude:"",
                         description:this.description,
-                        release_style:this.goods_style,
+                        release_style:this.goods_style == 1?2:1,
                         goods_style:this.type_choose,
                         user_id:this.userId,
                         creat_time:this.creat_time,
